@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>LAC - Land Area Calculator | Free Online Tools</title>
+    <meta name="description" content="LAC (Land Area Calculator) - निःशुल्क ऑनलाइन टूल्स का संग्रह - क्षेत्रफल कैलकुलेटर, उम्र कैलकुलेटर, PDF टूल्स और भी बहुत कुछ।">
+    <meta name="keywords" content="LAC, Land Area Calculator, Bigha Calculator, Free Online Tools, PDF Tools, Unit Converter">
+    <meta name="author" content="LAC Tools">
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "LAC - Online Tools Collection",
+      "url": "https://yourdomain.com",
+      "description": "Collection of free online tools including Land Area Calculator, Age Calculator, and PDF Tools",
+      "applicationCategory": "Tool",
+      "operatingSystem": "Web"
+    }
+    </script>
+
+    <style>
+        :root { 
+            --primary: #4f46e5; 
+            --secondary: #f59e0b;
+            --bg: #f8fafc; 
+            --text: #1e293b; 
+            --accent: #818cf8; 
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --nav-bg: #ffffff;
+            --nav-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background: var(--nav-bg);
+            box-shadow: var(--nav-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary) 0%, #3730a3 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            font-family: 'Arial Black', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .logo-container:hover .logo {
+            transform: rotate(-5deg) scale(1.1);
+        }
+        
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-subtext {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: -3px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+        
+        .nav-link:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            background: rgba(79, 70, 229, 0.1);
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 6px rgba(79, 70, 229, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+        
+        /* Explore All Tools Button in Navbar */
+        .explore-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-left: 10px;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .explore-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .explore-btn:hover::before {
+            left: 100%;
+        }
+        
+        .explore-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: rgba(79, 70, 229, 0.1);
+            transform: rotate(90deg);
+        }
+        
+        .mobile-menu-btn.active {
+            transform: rotate(90deg);
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            animation: slideUp 0.8s ease-out 0.2s both;
+            transform-origin: center;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            position: relative;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+        
+        /* Tools Section */
+        .section-title {
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out 1s both;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            animation: expandWidth 0.8s ease-out 1.2s both;
+        }
+        
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 60px;
+            }
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out 1.1s both;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: cardPopIn 0.6s ease-out forwards;
+        }
+        
+        .tool-card:nth-child(1) { animation-delay: 1.2s; }
+        .tool-card:nth-child(2) { animation-delay: 1.3s; }
+        .tool-card:nth-child(3) { animation-delay: 1.4s; }
+        .tool-card:nth-child(4) { animation-delay: 1.5s; }
+        .tool-card:nth-child(5) { animation-delay: 1.6s; }
+        .tool-card:nth-child(6) { animation-delay: 1.7s; }
+        
+        @keyframes cardPopIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+        }
+        
+        .tool-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite linear;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+        
+        .tool-card:hover .tool-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .tool-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            z-index: 1;
+        }
+        
+        .tool-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover .tool-tag {
+            background: rgba(255,255,255,0.35);
+            transform: translateY(-2px);
+        }
+        
+        .tool-body {
+            padding: 25px;
+            position: relative;
+        }
+        
+        .tool-description {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            transition: color 0.3s ease;
+        }
+        
+        .tool-card:hover .tool-description {
+            color: var(--text);
+        }
+        
+        .tool-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .tool-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .tool-button:hover::before {
+            left: 100%;
+        }
+        
+        .tool-button:hover {
+            background: #3730a3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+        
+        .tool-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Coming Soon Badge */
+        .coming-soon-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--warning);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+            animation: pulseWarning 2s infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes pulseWarning {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+        }
+        
+        /* Features Section */
+        .features-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.6s ease-out 1.8s both;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            animation: cardPopIn 0.6s ease-out forwards;
+        }
+        
+        .feature-item:nth-child(1) { animation-delay: 1.9s; }
+        .feature-item:nth-child(2) { animation-delay: 2.0s; }
+        .feature-item:nth-child(3) { animation-delay: 2.1s; }
+        .feature-item:nth-child(4) { animation-delay: 2.2s; }
+        
+        .feature-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover h3 {
+            color: #3730a3;
+        }
+        
+        /* About & Contact Sections */
+        .info-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.6s ease-out 2.3s both;
+        }
+        
+        .contact-info {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            animation: fadeIn 0.8s ease-out 2.5s both;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideRight 0.5s ease-out forwards;
+        }
+        
+        .contact-item:nth-child(1) { animation-delay: 2.6s; }
+        .contact-item:nth-child(2) { animation-delay: 2.7s; }
+        .contact-item:nth-child(3) { animation-delay: 2.8s; }
+        .contact-item:nth-child(4) { animation-delay: 2.9s; }
+        
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #3730a3 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.6s ease-out 3s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulseBackground 4s infinite alternate;
+        }
+        
+        @keyframes pulseBackground {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Ad Slot */
+        .ad-slot {
+            background: #f1f5f9;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #94a3b8;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1.1s both;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 50px 20px 30px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s ease-out 3.2s both;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 3.4s both;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: slideRightSmall 0.5s ease-out forwards;
+        }
+        
+        .footer-links li:nth-child(1) { animation-delay: 3.5s; }
+        .footer-links li:nth-child(2) { animation-delay: 3.6s; }
+        .footer-links li:nth-child(3) { animation-delay: 3.7s; }
+        .footer-links li:nth-child(4) { animation-delay: 3.8s; }
+        
+        @keyframes slideRightSmall {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            padding: 2px 0;
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 3.9s both;
+        }
+        
+        .developer {
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .developer:hover {
+            transform: scale(1.05);
+            color: var(--accent);
+        }
+        
+        /* Mobile Menu Animation */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 20px 20px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 999;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-link {
+                padding: 15px;
+                margin: 5px 0;
+                border-radius: 10px;
+                transform: translateX(20px);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active .nav-link {
+                transform: translateX(0);
+                opacity: 1;
+                transition-delay: calc(0.1s * var(--i));
+            }
+            
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .explore-btn {
+                margin: 20px 0 0 0;
+                justify-content: center;
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            
+            .nav-links.active .explore-btn {
+                transform: translateY(0);
+                opacity: 1;
+                transition-delay: 0.4s;
+            }
+            
+            .mobile-menu-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 998;
+            }
+            
+            .mobile-menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-section,
+            .cta-section,
+            .info-section {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .nav-links {
+                gap: 3px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .explore-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 3px;
+            }
+            
+            .explore-btn {
+                margin-left: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <div class="logo">LAC</div>
+                <div>
+                    <div class="logo-text">LAC Tools</div>
+                    <div class="logo-subtext">Land Area Calculator</div>
+                </div>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link active" style="--i: 1">🏠 Home</a>
+                <a href="#tools" class="nav-link" style="--i: 2">📐 Land Calculator</a>
+                <a href="#tools" class="nav-link" style="--i: 3">🎂 Age Calculator</a>
+                <a href="#tools" class="nav-link" style="--i: 4">📄 PDF Tools</a>
+                <a href="#tools" class="nav-link" style="--i: 5">🔄 Converter</a>
+                <a href="#tools" class="nav-link" style="--i: 6">⚖️ BMI</a>
+                <a href="#about" class="nav-link" style="--i: 7">ℹ️ About Us</a>
+                <a href="#contact" class="nav-link" style="--i: 8">📞 Contact</a>
+                <a href="#tools" class="explore-btn">
+                    <span>🔍</span> Explore All Tools
+                </a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- HOMEPAGE -->
+    <div id="homepage">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to LAC Tools</h1>
+            <p>Your one-stop destination for free, powerful online tools. Calculate land area, convert units, edit PDFs, and much more - all for free!</p>
+            <div class="hero-buttons">
+                <a href="#tools" class="btn-primary">
+                    <span>🚀</span> Try Land Calculator
+                </a>
+                <a href="#tools" class="btn-secondary">
+                    <span>🔍</span> Explore All Tools
+                </a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Ad Slot 1 -->
+            <div class="ad-slot">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- All Tools Section -->
+            <h2 class="section-title" id="tools">All Tools</h2>
+            <p class="section-subtitle">Powerful online tools designed for your daily needs</p>
+            
+            <div class="tools-grid">
+                <!-- Tool 1: Land Calculator -->
+                <div class="tool-card">
+                    <div class="coming-soon-badge">Available</div>
+                    <div class="tool-header">
+                        <div class="tool-icon">📐</div>
+                        <div>
+                            <div class="tool-title">Land Area Calculator</div>
+                            <div class="tool-tag">Agriculture • Construction</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Calculate area of any shape land. Get results in Bigha, Kattha, Dhur, Square Feet and all common units.
+                        </p>
+                        <a href="land-calculator.html" class="tool-button">Open Tool →</a>
+                    </div>
+                </div>
+
+                <!-- Tool 2: Age Calculator -->
+                <div class="tool-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="tool-header">
+                        <div class="tool-icon">🎂</div>
+                        <div>
+                            <div class="tool-title">Age Calculator</div>
+                            <div class="tool-tag">Personal • Educational</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Calculate exact age from birth date. Get results in years, months, days, hours and minutes.
+                        </p>
+                        <button class="tool-button" disabled>Coming Soon</button>
+                    </div>
+                </div>
+
+                <!-- Tool 3: PDF Tools -->
+                <div class="tool-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="tool-header">
+                        <div class="tool-icon">📄</div>
+                        <div>
+                            <div class="tool-title">PDF Tools</div>
+                            <div class="tool-tag">Office • Education</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Merge, split, compress and convert PDF files. All essential PDF operations in one place.
+                        </p>
+                        <button class="tool-button" disabled>Coming Soon</button>
+                    </div>
+                </div>
+
+                <!-- Tool 4: Unit Converter -->
+                <div class="tool-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="tool-header">
+                        <div class="tool-icon">🔄</div>
+                        <div>
+                            <div class="tool-title">Unit Converter</div>
+                            <div class="tool-tag">Science • Engineering</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Convert between length, weight, temperature, time, currency and 100+ other units easily.
+                        </p>
+                        <button class="tool-button" disabled>Coming Soon</button>
+                    </div>
+                </div>
+
+                <!-- Tool 5: BMI Calculator -->
+                <div class="tool-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="tool-header">
+                        <div class="tool-icon">⚖️</div>
+                        <div>
+                            <div class="tool-title">BMI Calculator</div>
+                            <div class="tool-tag">Health • Fitness</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Calculate Body Mass Index (BMI) and know healthy weight range. Includes detailed health advice.
+                        </p>
+                        <button class="tool-button" disabled>Coming Soon</button>
+                    </div>
+                </div>
+
+                <!-- Tool 6: Interest Calculator -->
+                <div class="tool-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="tool-header">
+                        <div class="tool-icon">💰</div>
+                        <div>
+                            <div class="tool-title">Interest Calculator</div>
+                            <div class="tool-tag">Finance • Banking</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Calculate simple and compound interest. Full calculation for loan EMI, investment returns.
+                        </p>
+                        <button class="tool-button" disabled>Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Slot 2 -->
+            <div class="ad-slot">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">What makes LAC Tools special</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Fast & Lightweight</h3>
+                        <p>All tools are lightweight and fast, work smoothly even on slow internet connections</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy Safe</h3>
+                        <p>Your data stays on your device, never sent or stored anywhere</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Fully optimized for all devices - mobile, tablet and desktop</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">💯</div>
+                        <h3>100% Free</h3>
+                        <p>All tools completely free, no subscriptions, registration or fees</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Us Section -->
+            <div class="info-section" id="about">
+                <h2 class="section-title">About LAC Tools</h2>
+                
+                <p class="section-subtitle">Your trusted partner for free online tools</p>
+                
+                <p class="tool-description" style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+                    Welcome to <strong>LAC Tools</strong> - your comprehensive destination for free, powerful online tools. 
+                    Our mission is to provide users with easy-to-use, reliable tools that solve everyday problems 
+                    without any cost or registration requirements.
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>To make powerful digital tools accessible to everyone without barriers</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">💡</div>
+                        <h3>Our Vision</h3>
+                        <p>Create tools that simplify complex calculations and tasks</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Our Promise</h3>
+                        <p>Always free, always private, always accurate</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Future Plans</h3>
+                        <p>Continuously adding new tools based on user feedback</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Us Section -->
+            <div class="info-section" id="contact">
+                <h2 class="section-title">Contact Us</h2>
+                
+                <p class="section-subtitle">We'd love to hear from you!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: var(--primary);">Email Us</h3>
+                            <p style="margin: 0; color: #4b5563;">For general inquiries and feedback</p>
+                            <p style="margin: 10px 0 0 0; font-weight: 500;">
+                                <a href="mailto:manishxyz659@gmail.com" style="color: var(--primary); text-decoration: none;">
+                                    manishxyz659@gmail.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💡</div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: var(--primary);">Tool Suggestions</h3>
+                            <p style="margin: 0; color: #4b5563;">Have an idea for a new tool?</p>
+                            <p style="margin: 10px 0 0 0; font-weight: 500;">
+                                <a href="mailto:manishxyz659@gmail.com" style="color: var(--primary); text-decoration: none;">
+                                    manishxyz659@gmail.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🔧</div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: var(--primary);">Technical Support</h3>
+                            <p style="margin: 0; color: #4b5563;">Report bugs or technical issues</p>
+                            <p style="margin: 10px 0 0 0; font-weight: 500;">
+                                <a href="mailto:manishxyz659@gmail.com" style="color: var(--primary); text-decoration: none;">
+                                    manishxyz659@gmail.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: var(--primary);">Response Time</h3>
+                            <p style="margin: 0; color: #4b5563;">We typically respond within 24-48 hours</p>
+                            <p style="margin: 10px 0 0 0; color: #4b5563;">
+                                Monday - Friday: 9 AM - 6 PM IST
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #f0f9ff; padding: 20px; border-radius: 10px; margin-top: 30px; border-left: 4px solid var(--primary); animation: fadeIn 0.8s ease-out 3s both;">
+                    <h3 style="color: var(--text); margin: 0 0 10px 0; font-size: 1.1rem;">Note for Users</h3>
+                    <p style="margin: 0; color: #4b5563; line-height: 1.6;">
+                        Currently, only the <strong>Land Area Calculator</strong> is available. Other tools are under development 
+                        and will be launched soon. Your patience and support are appreciated!
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Start Using Now!</h2>
+                <p>Try our Land Area Calculator today - no registration or login required. Just open and start calculating!</p>
+                <div class="hero-buttons">
+                    <a href="land-calculator.html" class="btn-primary">
+                        <span>📐</span> Try Land Calculator Now
+                    </a>
+                    <a href="#tools" class="btn-secondary">
+                        <span>🔍</span> Explore Future Tools
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Available Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="land-calculator.html">Land Area Calculator</a></li>
+                        <li><a href="#tools">Age Calculator (Coming Soon)</a></li>
+                        <li><a href="#tools">PDF Tools (Coming Soon)</a></li>
+                        <li><a href="#tools">Unit Converter (Coming Soon)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#tools">All Tools</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#features">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Use</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 LAC Tools. All rights reserved.</p>
+                <p class="developer">Developed with ❤️ by Manish</p>
+            </div>
+        </footer>
+    </div>
+
+<script>
+    // Mobile menu toggle with smooth animation
+    let isMobileMenuOpen = false;
+    
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const overlay = document.getElementById('mobileMenuOverlay');
+        
+        isMobileMenuOpen = !isMobileMenuOpen;
+        
+        if (isMobileMenuOpen) {
+            // Open menu
+            navLinks.classList.add('active');
+            overlay.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            mobileMenuBtn.innerHTML = '✕';
+            document.body.style.overflow = 'hidden';
+            
+            // Animate menu items
+            const navItems = navLinks.querySelectorAll('.nav-link, .explore-btn');
+            navItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+        } else {
+            // Close menu
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.innerHTML = '☰';
+            document.body.style.overflow = '';
+            
+            // Reset transition delays
+            const navItems = navLinks.querySelectorAll('.nav-link, .explore-btn');
+            navItems.forEach(item => {
+                item.style.transitionDelay = '0s';
+            });
+        }
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // Don't prevent default for external links
+            if (this.getAttribute('href').includes('.html')) return;
+            
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Close mobile menu if open
+                if (isMobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+                
+                // Smooth scroll to target
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Update active nav link on scroll with debounce
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const sections = document.querySelectorAll('section, .info-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            let minDiff = Infinity;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const scrollPosition = window.scrollY + 100; // Offset for navbar
+                
+                // Check if section is in view
+                if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+                    const diff = Math.abs(scrollPosition - sectionTop);
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        current = section.getAttribute('id');
+                    }
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${current}` || (current === '' && href === '#')) {
+                    link.classList.add('active');
+                }
+            });
+        }, 100);
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+    });
+    
+    // Close mobile menu when clicking overlay
+    document.getElementById('mobileMenuOverlay').addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isMobileMenuOpen) {
+            toggleMobileMenu();
+        }
+    });
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        // Set active nav link based on URL hash
+        if (window.location.hash) {
+            const hash = window.location.hash;
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }, 300);
+            }
+        }
+        
+        // Add hover effects to cards on load
+        setTimeout(() => {
+            document.querySelectorAll('.tool-card').forEach((card, index) => {
+                card.style.animationDelay = `${1.2 + (index * 0.1)}s`;
+            });
+        }, 100);
+    });
+</script>
+
+</body>
+</html>
