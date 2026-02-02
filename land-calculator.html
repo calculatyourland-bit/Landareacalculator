@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Land Area Calculator - Manish Kumar | खेत का क्षेत्रफल निकालें</title>
+    <meta name="description" content="Manish Kumar dwara banaya gaya sabse satik Land Area Calculator. Bigha, Kattha, Dhur aur Square Feet mein khet ka kshetraphal turant nikalein.">
+    <meta name="keywords" content="Land Calculator, Manish Kumar, Bigha Kattha Calculator, Area Converter, Bihar Land Calculator, Agriculture Tool">
+    <meta name="author" content="Manish Kumar">
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Land Area Calculator",
+      "url": "https://yourdomain.com",
+      "description": "Calculate land area in Bigha, Kattha, Dhur, and Square Feet easily.",
+      "applicationCategory": "Tool",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Person",
+        "name": "Manish Kumar"
+      }
+    }
+    </script>
+
+    <style>
+        :root { --primary: #4f46e5; --bg: #f8fafc; --text: #1e293b; --accent: #818cf8; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 12px; display: flex; flex-direction: column; align-items: center; margin: 0; min-height: 100vh; }
+        .box { width: 100%; max-width: 550px; background: #fff; padding: 20px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); box-sizing: border-box; }
+        .top { text-align: center; margin-bottom: 20px; }
+        h1 { margin: 0; font-size: 32px; color: var(--primary); font-weight: 900; text-transform: uppercase; line-height: 1.2; letter-spacing: -1px; }
+        .ad-slot { background: #f1f5f9; margin: 15px 0; display: flex; justify-content: center; align-items: center; min-height: 90px; border-radius: 12px; font-size: 12px; color: #94a3b8; overflow: hidden; }
+        .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 15px; }
+        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .full-width { grid-column: span 2; }
+        label { font-size: 13px; font-weight: 600; color: #64748b; display: block; margin-bottom: 4px; }
+        
+        /* Dropdown with Arrow Styling */
+        .select-wrapper { position: relative; width: 100%; }
+        select { 
+            width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 10px; 
+            font-size: 16px; box-sizing: border-box; transition: 0.2s; 
+            appearance: none; -webkit-appearance: none; background: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C2.185 5.355 2.398 5 2.796 5h10.408c.398 0 .611.355.345.658l-4.796 5.482a.5.5 0 0 1-.708 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 12px center; padding-right: 35px;
+        }
+        
+        input { width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; box-sizing: border-box; transition: 0.2s; }
+        input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); outline: none; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        button { flex: 1; padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 16px; }
+        .calc-btn { background: var(--primary); color: white; }
+        .calc-btn:hover { background: #4338ca; }
+        .reset-btn { background: #e2e8f0; color: #475569; }
+        .pdf-btn { background: #10b981; color: white; margin-top: 10px; width: 100%; display: none; }
+        .result-card { display: none; background: #f0f4ff; border-left: 6px solid var(--primary); padding: 16px; border-radius: 12px; margin-top: 20px; animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+        .res-item { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #dce4ff; font-size: 15px; }
+        .highlight { color: var(--primary); font-weight: 800; font-size: 17px; }
+        .warning-box { background: #fff7ed; color: #9a3412; padding: 12px; border-radius: 10px; font-size: 13px; margin-bottom: 15px; border: 1px solid #fed7aa; }
+        .diagram-container { margin-top: 15px; display: flex; flex-direction: column; align-items: center; background: #fff; border-radius: 15px; padding: 20px; border: 2px dashed #cbd5e1; }
+        .hist-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+        
+        /* About Section Styling */
+        .about-section { margin-top: 30px; background: #fff; padding: 20px; border-radius: 20px; border: 1px solid #e2e8f0; line-height: 1.6; }
+        .about-section h2 { color: var(--primary); font-size: 20px; margin-top: 0; }
+        .about-section p { font-size: 14px; color: #475569; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .about-item { background: #f8fafc; padding: 10px; border-radius: 10px; font-size: 13px; border-left: 3px solid var(--accent); }
+
+        footer { margin-top: auto; padding: 20px; font-size: 14px; color: #94a3b8; text-align: center; }
+        .dev-name { color: #000; font-weight: 900; }
+        @media print { .box, footer, .ad-slot { display: none !important; } #resultCard { display: block !important; position: static; width: 100%; border: none; } }
+    </style>
+</head>
+<body>
+
+<main class="box">
+    <header class="top">
+        <h1>LAND AREA CALCULATOR</h1>
+        <p style="font-size: 12px; color: #64748b; margin-top: 5px;">By Manish Kumar</p>
+    </header>
+
+    <div class="ad-slot">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="card" style="background: #eff6ff; border-color: #bfdbfe; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div><label style="color: #1e40af;">लग्गी (हाथ में)</label><select id="laggi"></select></div>
+        <div><label style="color: #1e40af;">इनपुट यूनिट</label>
+            <select id="inputUnit" onchange="drawInputs()">
+                <option value="feet" selected>फीट (Feet)</option>
+                <option value="kadi">कड़ी (Links)</option>
+                <option value="meter">मीटर (Meter)</option>
+                <option value="guz">गज़ (Yard)</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="card">
+        <label for="shape">खेत का आकार चुनें</label>
+        <select id="shape" onchange="drawInputs()">
+            <option value="">-- चुनें --</option>
+            <option value="rectangle">आयत (Rectangle)</option>
+            <option value="square">वर्ग (Square)</option>
+            <option value="triangle">त्रिभुज (Triangle)</option>
+            <option value="right_triangle">समकोण त्रिभुज</option>
+            <option value="parallelogram">चार मेड़ (4 Sides)</option>
+            <option value="oval">अंडाकार (Oval)</option>
+            <option value="circle">वृत्त (Circle)</option>
+        </select>
+        <div id="inputs" class="input-grid"></div>
+        <div class="btn-group">
+            <button class="calc-btn" onclick="calculate()">क्षेत्रफल निकालें</button>
+            <button class="reset-btn" onclick="resetAll()">रीसेट</button>
+        </div>
+    </section>
+
+    <div class="result-card" id="resultCard">
+        <h3 style="margin:0 0 10px 0; font-size:18px; color: var(--primary);">📐 गणना का परिणाम</h3>
+        <div id="warningArea"></div>
+        <div id="resultContent"></div>
+        <div class="diagram-container">
+            <span style="font-size: 12px; color: #94a3b8; margin-bottom: 10px; font-weight: bold;">खेत का नक्शा (Diagram)</span>
+            <div id="diagram"></div>
+        </div>
+        <button class="pdf-btn" id="pdfBtn" onclick="window.print()">📄 PDF डाउनलोड करें</button>
+    </div>
+
+    <section class="about-section">
+        <h2>ℹ️ इस टूल के बारे में</h2>
+        <p>यह **Land Area Calculator** मनीष कुमार द्वारा विकसित एक उन्नत पैमाइश टूल है। इसे विशेष रूप से किसानों और अमीन (Surveyors) की जरूरतों को ध्यान में रखकर बनाया गया है ताकि वे जटिल आकृतियों वाले खेतों का क्षेत्रफल सटीकता से निकाल सकें।</p>
+        
+        <div class="about-grid">
+            <div class="about-item"><b>क्षेत्रीय पैमाइश:</b> बिहार और अन्य राज्यों की पारंपरिक इकाइयों (बीघा-कट्ठा) का पूर्ण समर्थन।</div>
+            <div class="about-item"><b>सटीक गणना:</b> हेरोन फॉर्मूला (Heron's Formula) का उपयोग करके टेढ़े-मेढ़े खेतों का सही माप।</div>
+            <div class="about-item"><b>स्मार्ट डायग्राम:</b> माप के साथ-साथ खेत का एक डिजिटल नक्शा भी तैयार होता है।</div>
+            <div class="about-item"><b>मल्टी-यूनिट:</b> फीट, कड़ी, मीटर और गज में इनपुट देने की सुविधा।</div>
+        </div>
+        <p style="font-size: 12px; margin-top: 15px; border-top: 1px solid #eee; pt: 10px;">यह टूल `localStorage` का उपयोग करता है जिससे आपकी गणना सुरक्षित रहती है। आप इसे बिना इंटरनेट के भी उपयोग कर सकते हैं।</p>
+    </section>
+
+    <section class="history-box" style="margin-top: 20px; border-top: 1px solid #f1f5f9; padding-top: 10px;">
+        <button onclick="toggleHistory()" style="width: 100%; background: #f1f5f9; padding: 12px; border-radius: 10px; font-size: 14px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; cursor: pointer;">
+            <span>🕒 पुरानी हिस्ट्री देखें</span><span id="tIcon">▼</span>
+        </button>
+        <div id="hContent" style="display: none; padding-top: 10px;">
+            <button onclick="clearHistory()" style="width: 100%; background: #fee2e2; color: #b91c1c; border: none; padding: 8px; border-radius: 8px; font-size: 12px; cursor: pointer; margin-bottom: 10px; font-weight: bold;">🗑️ क्लियर हिस्ट्री</button>
+            <div id="hList"></div>
+        </div>
+    </section>
+</main>
+
+<footer>Developed with <span style="color:red">❤</span> by <span class="dev-name">Manish Kumar</span></footer>
+
+<script>
+/* JavaScript functions same as provided original code to ensure zero functionality loss */
+function populateLaggi() {
+    const s = document.getElementById('laggi');
+    for(let i=4; i<=13; i+=0.25) {
+        let o = document.createElement('option'); o.value=i; o.innerText=i+" हाथ"+(i===6.5?" (मानक)":"");
+        if(i===6.5) o.selected=true; s.appendChild(o);
+    }
+}
+window.onload = () => { populateLaggi(); drawInputs(); renderHistory(); };
+
+function toggleHistory() {
+    const c = document.getElementById('hContent'); const i = document.getElementById('tIcon');
+    c.style.display = c.style.display === "block" ? "none" : "block";
+    i.innerText = c.style.display === "block" ? "▲" : "▼";
+}
+
+function clearHistory() { if(confirm("हिस्ट्री मिटाएं?")) { localStorage.removeItem('landCalcHist'); renderHistory(); } }
+
+function drawInputs() {
+    const c = document.getElementById('inputs'); const s = document.getElementById('shape').value;
+    const u = document.getElementById('inputUnit').value; 
+    const uT = `(${u==='feet'?'फीट':u==='kadi'?'कड़ी':u==='meter'?'मीटर':'गज़'})`;
+    c.innerHTML = ""; document.getElementById('resultCard').style.display = "none";
+    const f = {
+        rectangle: [{l:'लंबाई (N/S) '+uT, id:'L'}, {l:'चौड़ाई (E/W) '+uT, id:'W'}],
+        square: [{l:'भुजा '+uT, id:'S'}],
+        triangle: [{l:'भुजा A '+uT, id:'A'}, {l:'भुजा B '+uT, id:'B'}, {l:'भुजा C '+uT, id:'C'}],
+        right_triangle: [{l:'आधार '+uT, id:'B_base'}, {l:'लम्ब '+uT, id:'H_height'}],
+        parallelogram: [{l:'उत्तर (N) '+uT, id:'m1'}, {l:'पूर्व (E) '+uT, id:'m2'}, {l:'दक्षिण (S) '+uT, id:'m3'}, {l:'पश्चिम (W) '+uT, id:'m4'}, {l:'विकर्ण (Optional) '+uT, id:'diag'}],
+        oval: [{l:'लंबाई '+uT, id:'ld'}, {l:'चौड़ाई '+uT, id:'sd'}],
+        circle: [{l:'व्यास '+uT, id:'d'}]
+    };
+    if(f[s]) f[s].forEach(x => {
+        let d = document.createElement('div'); if(s==='square'||s==='circle'||x.id==='diag') d.className='full-width';
+        d.innerHTML = `<label>${x.l}</label><input type="number" id="${x.id}" step="any" min="0" placeholder="0.00">`; c.appendChild(d);
+    });
+}
+
+function heron(a,b,c) {
+    if(!a || !b || !c || a+b<=c || a+c<=b || b+c<=a) return 0;
+    let s = (a+b+c)/2;
+    return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+}
+
+function calculate() {
+    let areaKadi = 0, svg = "", s = document.getElementById('shape').value;
+    const laggi = parseFloat(document.getElementById('laggi').value);
+    const unit = document.getElementById('inputUnit').value;
+    const oneDhur = Math.pow((laggi * 18) / 7.92, 2);
+    const clr = "#4f46e5"; const fill = "rgba(79, 70, 229, 0.1)";
+
+    const getRaw = (id) => parseFloat(document.getElementById(id)?.value) || 0;
+    const getVal = (v) => {
+        if(unit === 'feet') return v / 0.66;
+        if(unit === 'meter') return (v * 3.28084) / 0.66;
+        if(unit === 'guz') return (v * 3) / 0.66;
+        return v;
+    };
+
+    try {
+        if(!s) throw "NoShape"; 
+        document.getElementById('warningArea').innerHTML = "";
+
+        if(s === "rectangle") {
+            let L = getRaw('L'), W = getRaw('W'); if(!L || !W) throw "Err";
+            areaKadi = getVal(L) * getVal(W);
+            svg = `<svg width="200" height="140"><rect x="30" y="30" width="140" height="80" fill="${fill}" stroke="${clr}" stroke-width="3"/>
+            <text x="100" y="25" text-anchor="middle" font-size="12" font-weight="bold">N: ${L}</text>
+            <text x="100" y="125" text-anchor="middle" font-size="12" font-weight="bold">S: ${L}</text>
+            <text x="15" y="75" font-size="12" font-weight="bold" transform="rotate(-90,15,75)">W: ${W}</text>
+            <text x="185" y="75" font-size="12" font-weight="bold" transform="rotate(90,185,75)">E: ${W}</text></svg>`;
+        } else if(s === "parallelogram") {
+            let n=getRaw('m1'), e=getRaw('m2'), s_side=getRaw('m3'), w=getRaw('m4'), d=getRaw('diag');
+            if(!n || !e || !s_side || !w) throw "Err";
+            if(d > 0) {
+                let t1 = heron(getVal(n), getVal(e), getVal(d));
+                let t2 = heron(getVal(s_side), getVal(w), getVal(d));
+                if(t1 === 0 || t2 === 0) throw "InvalidTri";
+                areaKadi = t1 + t2;
+            } else {
+                areaKadi = ((getVal(n)+getVal(s_side))/2) * ((getVal(e)+getVal(w))/2);
+                document.getElementById('warningArea').innerHTML = `<div class="warning-box">⚠️ औसत विधि का उपयोग हुआ है। सटीक माप हेतु विकर्ण भरें।</div>`;
+            }
+            svg = `<svg width="200" height="140"><path d="M 50 30 L 170 35 L 150 115 L 30 105 Z" fill="${fill}" stroke="${clr}" stroke-width="3"/>
+            <text x="110" y="25" text-anchor="middle" font-size="11" font-weight="bold">N: ${n}</text><text x="175" y="80" font-size="11" font-weight="bold">E: ${e}</text>
+            <text x="90" y="130" text-anchor="middle" font-size="11" font-weight="bold">S: ${s_side}</text><text x="20" y="70" font-size="11" font-weight="bold">W: ${w}</text>
+            ${d > 0 ? `<line x1="50" y1="30" x2="150" y2="115" stroke="red" stroke-dasharray="4"/><text x="100" y="80" fill="red" font-size="10">V: ${d}</text>` : ''}</svg>`;
+        } else if(s === "square") {
+            let S = getRaw('S'); if(!S) throw "Err";
+            areaKadi = Math.pow(getVal(S), 2);
+            svg = `<svg width="140" height="140"><rect x="20" y="25" width="100" height="100" fill="${fill}" stroke="${clr}" stroke-width="3"/><text x="70" y="18" text-anchor="middle" font-size="12" font-weight="bold">${S}</text><text x="70" y="138" text-anchor="middle" font-size="12" font-weight="bold">${S}</text></svg>`;
+        } else if(s === "triangle") {
+            let a=getRaw('A'), b=getRaw('B'), c=getRaw('C');
+            areaKadi = heron(getVal(a), getVal(b), getVal(c)); if(areaKadi === 0) throw "InvalidTri";
+            svg = `<svg width="160" height="130"><path d="M 80 20 L 145 110 L 15 110 Z" fill="${fill}" stroke="${clr}" stroke-width="3"/><text x="45" y="65" font-weight="bold">${a}</text><text x="115" y="65" font-weight="bold">${b}</text><text x="80" y="125" text-anchor="middle" font-weight="bold">${c}</text></svg>`;
+        } else if(s === "right_triangle") {
+            let b=getRaw('B_base'), h=getRaw('H_height'); if(!b || !h) throw "Err";
+            areaKadi = 0.5 * getVal(b) * getVal(h);
+            svg = `<svg width="160" height="130"><path d="M 30 20 L 30 110 L 135 110 Z" fill="${fill}" stroke="${clr}" stroke-width="3"/><text x="15" y="70" font-weight="bold" transform="rotate(-90,15,70)">H: ${h}</text><text x="80" y="125" text-anchor="middle" font-weight="bold">B: ${b}</text></svg>`;
+        } else if(s === "oval") {
+            let l=getRaw('ld'), w=getRaw('sd'); if(!l || !w) throw "Err";
+            areaKadi = (getVal(l) * getVal(w) * Math.PI) / 4;
+            svg = `<svg width="180" height="110"><ellipse cx="90" cy="55" rx="75" ry="40" fill="${fill}" stroke="${clr}" stroke-width="3"/><text x="90" y="55" text-anchor="middle" font-weight="bold">L:${l} W:${w}</text></svg>`;
+        } else if(s === "circle") {
+            let d=getRaw('d'); if(!d) throw "Err";
+            areaKadi = Math.PI * Math.pow(getVal(d)/2, 2);
+            svg = `<svg width="130" height="130"><circle cx="65" cy="65" r="50" fill="${fill}" stroke="${clr}" stroke-width="3"/><text x="65" y="68" text-anchor="middle" font-weight="bold">D:${d}</text></svg>`;
+        }
+
+        if(!areaKadi || areaKadi <= 0) throw "Err";
+        let dhur = areaKadi / oneDhur, ft = areaKadi * 0.4356, dec = areaKadi / 1000, guz = ft/9, mtr = ft/10.7639, resKDH = breakdown(dhur);
+        document.getElementById('resultCard').style.display = "block";
+        document.getElementById('pdfBtn').style.display = "block";
+        document.getElementById('resultContent').innerHTML = `
+            <div class="res-item" style="background:#fff; border:1px solid #dce4ff; padding:8px; border-radius:8px; margin-bottom:10px;"><span style="font-size:13px; color:#64748b;">लग्गी: ${laggi} हाथ | 1 धुर:</span> <b style="color:var(--primary)">${oneDhur.toFixed(3)} वर्ग कड़ी</b></div>
+            <div class="res-item"><span>कुल क्षेत्रफल</span> <b>${areaKadi.toFixed(2)} वर्ग कड़ी</b></div>
+            <div class="res-item"><span>वर्ग फीट</span> <b>${ft.toFixed(2)} ft²</b></div>
+            <div class="res-item"><span>वर्ग गज</span> <b>${guz.toFixed(2)} Guz²</b></div>
+            <div class="res-item"><span>वर्ग मीटर</span> <b>${mtr.toFixed(2)} m²</b></div>
+            <div class="res-item"><span>डिसमिल</span> <b>${dec.toFixed(3)} Dec</b></div>
+            <div class="res-item highlight" style="background:#e0e7ff; padding:10px; border-radius:8px;"><span>कुल धुर</span> <b>${dhur.toFixed(3)} धुर</b></div>
+            <div class="res-item" style="font-size:18px;"><span>पैमाइश:</span> <span class="highlight">${resKDH}</span></div>`;
+        document.getElementById('diagram').innerHTML = svg;
+        saveH(s, areaKadi, ft, dec, resKDH, laggi);
+    } catch(e) { 
+        if(e === "InvalidTri") alert("गलत माप! इन भुजाओं से आकार संभव नहीं है।");
+        else if(e === "NoShape") alert("कृपया पहले आकार चुनें!");
+        else alert("कृपया सभी जरूरी बॉक्स में सही माप भरें!"); 
+    }
+}
+
+function breakdown(d) { 
+    let b=Math.floor(d/400), rB=d%400, k=Math.floor(rB/20), r=rB%20, dh=Math.floor(r), dk=Math.round((r-dh)*20); 
+    if(dk>=20){dh++;dk=0} if(dh>=20){k++;dh=0} if(k>=20){b++;k=0} 
+    return (b>0?b+" बीघा - ":"")+k+" कट्ठा - "+dh+" धुर - "+dk+" धुरकी"; 
+}
+
+function saveH(shape, kadi, ft, dec, kdh, laggi) { 
+    let h = JSON.parse(localStorage.getItem('landCalcHist')) || []; 
+    h.unshift({id:Date.now(), shape, kadi:kadi.toFixed(1), ft:ft.toFixed(2), dec:dec.toFixed(3), kdh, laggi, time:new Date().toLocaleTimeString('hi-IN')}); 
+    localStorage.setItem('landCalcHist', JSON.stringify(h.slice(0, 10))); 
+    renderHistory(); 
+}
+
+function renderHistory() { 
+    const l = document.getElementById('hList'); let h = JSON.parse(localStorage.getItem('landCalcHist')) || []; 
+    if(!h.length){l.innerHTML="<p style='text-align:center; color:#888;'>हिस्ट्री खाली है</p>"; return;} 
+    l.innerHTML = h.map(x => `
+        <div class="hist-item">
+            <div class="hist-meta">
+                <span>🕒 ${x.time}</span>
+                <span class="hist-tag">लग्गी: ${x.laggi} हाथ</span>
+            </div>
+            <div class="hist-main">${x.shape.toUpperCase()}: ${x.kdh}</div>
+            <div class="hist-grid">
+                <span>📐 ${x.kadi} kadi²</span>
+                <span>📏 ${x.ft} ft²</span>
+                <span>🌱 ${x.dec} Dec</span>
+            </div>
+        </div>`).join(''); 
+}
+
+function resetAll() { 
+    document.querySelectorAll('#inputs input').forEach(i => i.value=""); 
+    document.getElementById('resultCard').style.display="none"; 
+    document.getElementById('warningArea').innerHTML = "";
+    document.getElementById('diagram').innerHTML = "";
+}
+</script>
+</body>
+</html>
