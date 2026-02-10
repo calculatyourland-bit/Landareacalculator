@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Land Area Calculator - Manish Kumar | खेत का क्षेत्रफल निकालें</title>
+    <meta name="description" content="Manish Kumar dwara banaya gaya sabse satik Land Area Calculator. Bihar, UP, Jharkhand ke liye Bigha, Kattha, Dhur, Dismil aur Square Feet mein khet ka kshetraphal turant nikalein.">
+    <meta name="keywords" content="Land Calculator, Manish Kumar, Bigha Kattha Calculator, Area Converter, Bihar Land Calculator, Agriculture Tool, Jamin Napna, Guniya, Laggi Chart, Khesra Map, UP Bhulekh, Bhumi Jankari">
+    <meta name="author" content="Manish Kumar">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Land Area Calculator - खेत का क्षेत्रफल निकालें">
+    <meta property="og:description" content="जमीन नापने का सबसे आसान और सटीक डिजिटल टूल। अभी अपनी जमीन का नक्शा और क्षेत्रफल देखें।">
+    <meta property="og:image" content="https://yourdomain.com/preview-image.jpg">
+
+    <link rel="canonical" href="https://yourdomain.com/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Land Area Calculator",
+      "url": "https://yourdomain.com",
+      "description": "Calculate land area in Bigha, Kattha, Dhur, and Square Feet easily.",
+      "applicationCategory": "Tool",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Person",
+        "name": "Manish Kumar",
+        "email": "manishxyz659@gmail.com"
+      }
+    }
+    </script>
+
+    <style>
+        :root { 
+            --primary: #2e7d32; 
+            --primary-dark: #1b5e20;
+            --bg: #f8fafc; 
+            --text: #1e293b; 
+            --accent: #4caf50; 
+            --success: #388e3c;
+            --warning: #f57c00;
+            --danger: #d32f2f;
+            --card-bg: #ffffff;
+            --border: #e0e0e0;
+            --shadow: rgba(0,0,0,0.08);
+            --whatsapp: #25D366;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text); 
+            padding: 16px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .box { 
+            width: 100%; 
+            max-width: 600px; 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1); 
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .top { 
+            text-align: center; 
+            margin-bottom: 25px; 
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--bg);
+        }
+        
+        h1 { 
+            margin: 0; 
+            font-size: 34px; 
+            color: var(--primary); 
+            font-weight: 800; 
+            line-height: 1.1; 
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle { font-size: 14px; color: #64748b; margin-top: 5px; font-weight: 500; }
+        
+        .ad-slot { 
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); 
+            margin: 20px 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100px; 
+            border-radius: 12px; 
+            border: 2px dashed #cbd5e1;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ad-slot::before { content: "Advertisement"; position: absolute; bottom: 8px; right: 12px; font-size: 10px; color: #94a3b8; font-weight: 500; }
+        
+        .card { 
+            background: var(--card-bg); 
+            border: 1.5px solid var(--border); 
+            border-radius: 16px; 
+            padding: 20px; 
+            margin-bottom: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(46, 125, 50, 0.12); }
+
+        .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .card-icon { width: 32px; height: 32px; background: var(--primary); color: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
+        .card-title { font-size: 18px; font-weight: 700; color: var(--text); margin: 0; }
+        
+        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .full-width { grid-column: span 2; }
+        .input-group { position: relative; }
+        
+        label { font-size: 14px; font-weight: 600; color: #475569; display: block; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        label::before { content: "•"; color: var(--primary); font-size: 18px; }
+        
+        select { 
+            width: 100%; padding: 14px 40px 14px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-weight: 500;
+            box-sizing: border-box; transition: all 0.3s ease; appearance: none; -webkit-appearance: none; background: var(--card-bg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C2.185 5.355 2.398 5 2.796 5h10.408c.398 0 .611.355.345.658l-4.796 5.482a.5.5 0 0 1-.708 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center; cursor: pointer;
+        }
+        
+        input { 
+            width: 100%; padding: 14px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-weight: 500;
+            box-sizing: border-box; transition: all 0.3s ease; background: var(--card-bg);
+        }
+        
+        input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15); outline: none; }
+        
+        .input-unit { position: absolute; right: 14px; top: 42px; color: #64748b; font-size: 13px; font-weight: 500; }
+        
+        .btn-group { display: flex; gap: 12px; margin-top: 20px; }
+        
+        button { 
+            flex: 1; padding: 15px; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; 
+            transition: all 0.3s ease; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        
+        .calc-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; }
+        .calc-btn:hover { background: linear-gradient(135deg, var(--primary-dark) 0%, #164e1f 100%); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46, 125, 50, 0.2); }
+        
+        .reset-btn { background: #f8f9fa; color: #475569; border: 1.5px solid #e9ecef; }
+        .reset-btn:hover { background: #e9ecef; transform: translateY(-2px); }
+        
+        .action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; display: none; }
+        
+        .pdf-btn { background: var(--text); color: white; width: 100%; margin-top:0; }
+        .whatsapp-btn { background: var(--whatsapp); color: white; }
+        .img-btn { background: #0288d1; color: white; }
+        
+        .result-card { display: none; background: #f1f8e9; border-left: 6px solid var(--primary); padding: 20px; border-radius: 16px; margin-top: 20px; animation: slideIn 0.4s ease; }
+        
+        @keyframes slideIn { from { opacity:0; transform: translateY(15px); } to { opacity:1; transform: translateY(0); } }
+        
+        .res-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(46, 125, 50, 0.1); font-size: 15px; align-items: center; }
+        .res-item:last-child { border-bottom: none; }
+        
+        .highlight { color: var(--primary); font-weight: 700; font-size: 16px; background: rgba(46, 125, 50, 0.1); padding: 8px 16px; border-radius: 8px; display: inline-block; }
+        
+        .warning-box { background: #fff3e0; color: #e65100; padding: 14px; border-radius: 10px; font-size: 13px; margin-bottom: 15px; border: 1px solid #ffcc80; display: flex; align-items: flex-start; gap: 10px; }
+        .error-box { background: #fee2e2; color: #b91c1c; padding: 14px; border-radius: 10px; font-size: 14px; margin-bottom: 15px; border: 1px solid #fecaca; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        
+        .diagram-container { 
+            margin-top: 20px; display: flex; flex-direction: column; align-items: center; 
+            background: white; border-radius: 16px; padding: 20px; border: 1.5px solid var(--border);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        /* PREVIEW CONTAINER FOR REALTIME */
+        #previewContainer {
+            margin-top: 20px;
+            display: none;
+            border: 1px dashed var(--primary);
+            background: #f0fdf4;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .diagram-title { font-size: 16px; color: var(--text); margin-bottom: 15px; font-weight: 600; text-align: center; }
+        .scale-info { font-size: 12px; color: #64748b; margin-top: 10px; text-align: center; background: #f8f9fa; padding: 6px 12px; border-radius: 6px; display: inline-block; }
+        
+        /* History & About Sections */
+        .history-section, .about-section { margin-top: 30px; background: #fff; padding: 20px; border-radius: 20px; border: 1px solid #e2e8f0; }
+        .history-section h2 { color: var(--primary); font-size: 20px; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        .history-toggle-btn { background: #f1f5f9; padding: 12px 20px; border-radius: 10px; font-size: 14px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; width: 100%; cursor: pointer; font-weight: 600; color: var(--text); }
+        .history-content { display: none; padding-top: 15px; border-top: 1px solid #f1f5f9; }
+        .clear-history-btn { width: 100%; background: #fee2e2; color: #b91c1c; border: none; padding: 12px; border-radius: 8px; font-size: 14px; cursor: pointer; margin-bottom: 15px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .history-list { max-height: 300px; overflow-y: auto; padding-right: 5px; }
+        .history-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; margin-bottom: 12px; transition: transform 0.2s, box-shadow 0.2s; }
+        .history-item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .history-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9; }
+        .history-time { font-size: 11px; color: #64748b; background: #f1f5f9; padding: 3px 8px; border-radius: 20px; display: flex; align-items: center; gap: 4px; }
+        .history-shape { font-size: 12px; color: var(--primary); font-weight: bold; background: #e0e7ff; padding: 3px 10px; border-radius: 20px; }
+        .history-main { font-size: 15px; font-weight: bold; color: var(--text); margin: 8px 0; text-align: center; }
+        .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+        .history-grid-item { background: #f8fafc; padding: 8px; border-radius: 8px; font-size: 11px; text-align: center; }
+        .history-grid-item span:first-child { display: block; color: #64748b; font-size: 10px; margin-bottom: 2px; }
+        .history-grid-item span:last-child { font-weight: bold; color: var(--text); }
+        .no-history { text-align: center; color: #94a3b8; font-size: 14px; padding: 30px; background: #f8fafc; border-radius: 12px; border: 1px dashed #e2e8f0; }
+        .history-count { background: var(--primary); color: white; font-size: 12px; padding: 2px 8px; border-radius: 20px; margin-left: 8px; }
+        
+        /* About Section Styles */
+        .about-section { margin-top: 30px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 25px; border-radius: 18px; border: 1.5px solid var(--border); position: relative; overflow: hidden; }
+        .about-section::before { content: ""; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: linear-gradient(135deg, rgba(46, 125, 50, 0.05) 0%, rgba(76, 175, 80, 0.05) 100%); border-radius: 50%; }
+        .about-header { text-align: center; margin-bottom: 25px; }
+        .about-header h2 { color: var(--primary); font-size: 24px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .about-tagline { color: #64748b; font-size: 15px; max-width: 500px; margin: 0 auto; }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 25px 0; }
+        .feature-card { background: white; padding: 20px; border-radius: 14px; border: 1.5px solid var(--border); transition: all 0.3s ease; text-align: center; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--accent); }
+        .feature-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 15px; }
+        .feature-card h3 { color: var(--primary); font-size: 16px; margin-bottom: 8px; font-weight: 700; }
+        .feature-card p { color: #64748b; font-size: 13px; line-height: 1.5; }
+        .stats-container { display: flex; justify-content: space-around; background: white; padding: 20px; border-radius: 14px; margin: 25px 0; border: 1.5px solid var(--border); }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 28px; font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px; }
+        .stat-label { font-size: 13px; color: #64748b; font-weight: 600; }
+        .how-to-use { background: white; padding: 25px; border-radius: 14px; margin-top: 25px; border: 1.5px solid var(--border); }
+        .how-to-use h3 { color: var(--primary); font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .steps { display: grid; gap: 15px; }
+        .step { display: flex; align-items: flex-start; gap: 15px; }
+        .step-number { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+        .step-content h4 { color: var(--text); font-size: 15px; margin-bottom: 5px; }
+        .step-content p { color: #64748b; font-size: 13px; }
+        
+        footer { margin-top: 30px; padding: 20px; font-size: 14px; color: #64748b; text-align: center; width: 100%; font-weight: 500; }
+        .footer-heart { color: #d32f2f; font-weight: 900; }
+        .dev-name { color: var(--primary); font-weight: 900; text-decoration: none; }
+        .dev-name:hover { text-decoration: underline; }
+        
+        @media print { 
+            .box, footer, .ad-slot, .history-section, .about-section, .action-buttons, .reset-btn { display: none !important; } 
+            .result-card { display: block !important; position: static; width: 100%; border: none; box-shadow: none; margin: 0; padding: 20px; } 
+        }
+        
+        @media (max-width: 600px) {
+            .box { padding: 18px; border-radius: 16px; }
+            h1 { font-size: 28px; }
+            .input-grid { grid-template-columns: 1fr; gap: 12px; }
+            .full-width { grid-column: span 1; }
+            .feature-grid { grid-template-columns: 1fr; gap: 15px; }
+            .stats-container { flex-direction: column; gap: 15px; }
+            .btn-group { flex-direction: column; }
+            .action-buttons { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<main class="box">
+    <header class="top">
+        <h1>📐 LAND AREA CALCULATOR</h1>
+        <p class="subtitle">खेत का सटीक क्षेत्रफल निकालें - बीघा, कट्ठा, धुर, फीट में</p>
+        <p class="subtitle">By <strong>Manish Kumar</strong></p>
+    </header>
+
+    <div class="ad-slot">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="card">
+        <div class="card-header">
+            <div class="card-icon">📏</div>
+            <h3 class="card-title">पैमाना (Scale)</h3>
+        </div>
+        <div class="input-group">
+            <label for="paimana">मैप स्केल चुनें</label>
+            <select id="paimana">
+                <option value="16" selected>16" = 1 मील (मानक)</option>
+                <option value="32">32" = 1 मील</option>
+                <option value="64">64" = 1 मील</option>
+            </select>
+            <div class="info-text" id="paimanaText" style="font-size: 12px; color: #64748b; margin-top: 8px; display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 14px;">ℹ️</span>
+                <span>16" = मानक, 32" = ÷8, 64" = ÷16</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card-header">
+            <div class="card-icon">⚙️</div>
+            <h3 class="card-title">सेटिंग्स</h3>
+        </div>
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="laggi">लग्गी (हाथ में)</label>
+                <select id="laggi"></select>
+            </div>
+            <div class="input-group">
+                <label for="inputUnit">इनपुट यूनिट</label>
+                <select id="inputUnit" onchange="drawInputs()">
+                    <option value="feet" selected>फीट (Feet)</option>
+                    <option value="kadi">कड़ी (Links)</option>
+                    <option value="meter">मीटर (Meter)</option>
+                    <option value="guz">गज़ (Yard)</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card-header">
+            <div class="card-icon">🔷</div>
+            <h3 class="card-title">खेत का आकार चुनें</h3>
+        </div>
+        
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="shape">आकार प्रकार</label>
+                <select id="shape" onchange="drawInputs()" style="padding: 14px;">
+                    <option value="">-- चुनें --</option>
+                    <option value="rectangle">आयत (Rectangle)</option>
+                    <option value="square">वर्ग (Square)</option>
+                    <option value="triangle">त्रिभुज (Triangle)</option>
+                    <option value="right_triangle">समकोण त्रिभुज</option>
+                    <option value="parallelogram">विषम चतुर्भुज (4 मेड़/Sides)</option>
+                    <option value="oval">अंडाकार (Oval)</option>
+                    <option value="circle">वृत्त (Circle)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="inputs" class="input-grid" style="margin-top: 20px;"></div>
+        
+        <div id="previewContainer">
+            <div style="font-size: 13px; color: #64748b; margin-bottom: 5px;">📍 लाइव नक्शा (Live Preview)</div>
+            <div id="previewSvg"></div>
+        </div>
+
+        <div class="btn-group">
+            <button class="calc-btn" onclick="calculate()">
+                <span style="font-size: 18px;">📊</span>
+                क्षेत्रफल निकालें
+            </button>
+            <button class="reset-btn" onclick="resetAll()">
+                <span style="font-size: 18px;">🔄</span>
+                रीसेट
+            </button>
+        </div>
+    </section>
+
+    <div class="result-card" id="resultCard">
+        <h3 style="margin:0 0 15px 0; font-size:18px; color: var(--primary); display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px;">📈</span>
+            गणना का परिणाम
+        </h3>
+        <div id="warningArea"></div>
+        <div id="resultContent"></div>
+        <div class="diagram-container">
+            <div class="diagram-title" style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 18px;">🗺️</span>
+                खेत का नक्शा (Scaled Diagram)
+            </div>
+            <div id="diagram"></div>
+            <div id="scaleInfo" class="scale-info"></div>
+        </div>
+        
+        <div class="action-buttons" id="actionButtons">
+            <button class="whatsapp-btn" onclick="shareToWhatsApp()">
+                <span style="font-size: 18px;">💬</span> WhatsApp Share
+            </button>
+            <button class="img-btn" onclick="downloadImage()">
+                <span style="font-size: 18px;">🖼️</span> Save Photo
+            </button>
+            <button class="pdf-btn full-width" onclick="window.print()">
+                <span style="font-size: 18px;">📄</span> PDF डाउनलोड करें
+            </button>
+        </div>
+    </div>
+
+    <section class="history-section">
+        <h2 style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">🕒</span>
+            कैलकुलेशन हिस्ट्री 
+            <span id="historyCount" class="history-count">0</span>
+        </h2>
+        <button class="history-toggle-btn" onclick="toggleHistory()">
+            <span>पिछली गणनाएं देखें</span>
+            <span id="historyIcon">▼</span>
+        </button>
+        <div class="history-content" id="historyContent">
+            <button class="clear-history-btn" onclick="clearHistory()">
+                <span style="font-size: 16px;">🗑️</span>
+                हिस्ट्री क्लियर करें
+            </button>
+            <div class="history-list" id="historyList"></div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-header">
+            <h2 style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 26px;">🌟</span>
+                इस टूल के बारे में
+            </h2>
+            <p class="about-tagline">
+                मनीष कुमार द्वारा विकसित एक उन्नत डिजिटल पैमाइश टूल
+            </p>
+        </div>
+        
+        <div style="margin-bottom: 25px; text-align: left; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">यह टूल किसके लिए है?</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;">
+                    <span style="color: var(--primary);">✅</span>
+                    <span><strong>किसानों के लिए:</strong> अपनी जमीन की सटीक माप और बटवारे की जानकारी के लिए।</span>
+                </li>
+                <li style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;">
+                    <span style="color: var(--primary);">✅</span>
+                    <span><strong>अमीन और लेखपाल के लिए:</strong> खेतों के नक्शे से क्षेत्रफल निकालने और क्लाइंट्स को नक्शा देने के लिए।</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏞️</div>
+                <h3>सटीक आकृतियां</h3>
+                <p>7 प्रकार के खेतों (विषम चतुर्भुज, त्रिभुज, आयत आदि) का वैज्ञानिक तरीके से क्षेत्रफल।</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>यूनिट कन्वर्टर</h3>
+                <p>फीट, कड़ी, मीटर, गज से बीघा-कट्ठा में स्वचालित रूपांतरण।</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    Developed with <span class="footer-heart">❤</span> by 
+    <a href="mailto:manishxyz659@gmail.com" class="dev-name">Manish Kumar</a>
+    <br>
+    <small style="font-size: 12px; margin-top: 5px; display: block; color: #94a3b8;">
+        © 2024 Land Area Calculator | All calculations done locally
+    </small>
+</footer>
+
+<script>
+// ============== INITIALIZATION ==============
+function populateLaggi() {
+    const select = document.getElementById('laggi');
+    select.innerHTML = '';
+    
+    // Laggi range 4 to 13 with 0.25 steps
+    for(let i = 4; i <= 13; i += 0.25) {
+        let option = document.createElement('option'); 
+        option.value = i; 
+        
+        const isStandard = Math.abs(i - 6.5) < 0.01;
+        let displayValue = "";
+        
+        if (Number.isInteger(i)) {
+            displayValue = i.toFixed(0);
+        } else {
+            // Remove trailing zeros
+            displayValue = i.toFixed(2).replace(/\.?0+$/, '');
+        }
+        
+        option.innerText = displayValue + " हाथ" + (isStandard ? " (मानक)" : "");
+        if(isStandard) option.selected = true; 
+        select.appendChild(option);
+    }
+}
+
+function updatePaimanaText() {
+    const select = document.getElementById('paimana');
+    const text = document.getElementById('paimanaText');
+    
+    if(select.value === "32") {
+        text.innerHTML = '<span style="font-size: 14px;">ℹ️</span><span style="color: #f57c00;">32" = 1 मील (माप ÷ 8)</span>';
+    } else if(select.value === "64") {
+        text.innerHTML = '<span style="font-size: 14px;">ℹ️</span><span style="color: #d32f2f;">64" = 1 मील (माप ÷ 16)</span>';
+    } else {
+        text.innerHTML = '<span style="font-size: 14px;">ℹ️</span><span style="color: #2e7d32;">16" = 1 मील (मानक पैमाना)</span>';
+    }
+}
+
+window.onload = () => { 
+    populateLaggi(); 
+    drawInputs(); 
+    renderHistory(); 
+    updateHistoryCount();
+    updatePaimanaText();
+    document.getElementById('paimana').addEventListener('change', updatePaimanaText);
+};
+
+// ============== ERROR DISPLAY (No Alerts) ==============
+function showError(msg) {
+    const w = document.getElementById('warningArea');
+    document.getElementById('resultCard').style.display = "block"; // Show card to show error
+    document.getElementById('resultContent').innerHTML = ""; // Clear old results
+    document.getElementById('diagram').innerHTML = "";
+    document.getElementById('actionButtons').style.display = "none";
+    
+    w.innerHTML = `<div class="error-box">❌ ${msg}</div>`;
+    w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ============== HISTORY FUNCTIONS ==============
+function toggleHistory() {
+    const content = document.getElementById('historyContent');
+    const icon = document.getElementById('historyIcon');
+    const isVisible = content.style.display === "block";
+    content.style.display = isVisible ? "none" : "block";
+    icon.innerText = isVisible ? "▼" : "▲";
+    if (!isVisible) setTimeout(() => content.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+
+function clearHistory() { 
+    if(confirm("क्या आप वाकई सभी हिस्ट्री मिटाना चाहते हैं?")) { 
+        localStorage.removeItem('landCalcHist'); 
+        renderHistory(); 
+        updateHistoryCount();
+    } 
+}
+
+// ============== INPUT MANAGEMENT & LIVE PREVIEW ==============
+function drawInputs() {
+    const container = document.getElementById('inputs'); 
+    const shape = document.getElementById('shape').value;
+    const unit = document.getElementById('inputUnit').value; 
+    
+    let unitText = "";
+    switch(unit) {
+        case 'feet': unitText = "फीट"; break;
+        case 'kadi': unitText = "कड़ी"; break;
+        case 'meter': unitText = "मीटर"; break;
+        case 'guz': unitText = "गज़"; break;
+    }
+    
+    container.innerHTML = ""; 
+    document.getElementById('resultCard').style.display = "none";
+    document.getElementById('actionButtons').style.display = "none";
+    document.getElementById('previewContainer').style.display = "none";
+    
+    // Updated Labels for better understanding
+    const fields = {
+        rectangle: [{label:'लंबाई (N/S)', id:'L'}, {label:'चौड़ाई (E/W)', id:'W'}],
+        square: [{label:'भुजा की लंबाई', id:'S', full: true}],
+        triangle: [{label:'भुजा A', id:'A'}, {label:'भुजा B', id:'B'}, {label:'भुजा C', id:'C'}],
+        right_triangle: [{label:'आधार (Base)', id:'B_base'}, {label:'लम्ब (Height)', id:'H_height'}],
+        // Updated label for Parallelogram/Quadrilateral
+        parallelogram: [{label:'उत्तर मेड़ (North)', id:'m1'}, {label:'दक्षिण मेड़ (South)', id:'m3'}, {label:'पूर्व मेड़ (East)', id:'m2'}, {label:'पश्चिम मेड़ (West)', id:'m4'}, {label:'विकर्ण (Diagonal)', id:'diag', full: true}],
+        oval: [{label:'लंबाई (Length)', id:'ld'}, {label:'चौड़ाई (Width)', id:'sd'}],
+        circle: [{label:'व्यास (Diameter)', id:'d', full: true}]
+    };
+    
+    if(fields[shape]) {
+        document.getElementById('previewContainer').style.display = "block";
+        fields[shape].forEach(field => {
+            const div = document.createElement('div'); 
+            if(field.full) div.className = 'full-width';
+            
+            div.innerHTML = `
+                <label>${field.label}</label>
+                <div style="position: relative;">
+                    <input type="number" 
+                           id="${field.id}" 
+                           inputmode="decimal"
+                           step="any" 
+                           min="0" 
+                           placeholder="0"
+                           oninput="liveDraw()"
+                           style="padding: 14px 45px 14px 14px;">
+                    <span class="input-unit" style="right: 14px; top: 42px;">${unitText}</span>
+                </div>
+            `; 
+            container.appendChild(div);
+        });
+        liveDraw(); 
+    }
+}
+
+// ============== REALTIME DRAWING LOGIC ==============
+function liveDraw() {
+    const s = document.getElementById('shape').value;
+    const unit = document.getElementById('inputUnit').value;
+    const getSafe = (id) => parseFloat(document.getElementById(id)?.value) || 0;
+    
+    let dims = {};
+    if(s === 'rectangle') dims = {L: getSafe('L'), W: getSafe('W')};
+    else if(s === 'square') dims = {S: getSafe('S')};
+    else if(s === 'triangle') dims = {A: getSafe('A'), B: getSafe('B'), C: getSafe('C')};
+    else if(s === 'right_triangle') dims = {B_base: getSafe('B_base'), H_height: getSafe('H_height')};
+    else if(s === 'parallelogram') dims = {m1: getSafe('m1'), m2: getSafe('m2'), m3: getSafe('m3'), m4: getSafe('m4'), diag: getSafe('diag')};
+    else if(s === 'oval') dims = {ld: getSafe('ld'), sd: getSafe('sd')};
+    else if(s === 'circle') dims = {d: getSafe('d')};
+
+    const svg = createScaledDiagram(s, dims, unit);
+    document.getElementById('previewSvg').innerHTML = svg;
+    
+    if(document.getElementById('resultCard').style.display === "block") {
+        document.getElementById('diagram').innerHTML = svg;
+    }
+}
+
+// ============== CALCULATION FUNCTIONS ==============
+function heron(a, b, c) {
+    if (a <= 0 || b <= 0 || c <= 0) return 0;
+    // Strict triangle validation
+    if (a + b <= c || a + c <= b || b + c <= a) return 0;
+    
+    let s = (a + b + c) / 2;
+    let val = s * (s - a) * (s - b) * (s - c);
+    return val > 0 ? Math.sqrt(val) : 0;
+}
+
+function breakdown(d) { 
+    let b = Math.floor(d / 400);
+    let rB = d % 400;
+    let k = Math.floor(rB / 20);
+    let r = rB % 20;
+    let dh = Math.floor(r);
+    let dk = Math.round((r - dh) * 20);
+    
+    if (dk >= 20) { dh++; dk = 0; }
+    if (dh >= 20) { k++; dh = 0; }
+    if (k >= 20) { b++; k = 0; }
+    
+    let result = [];
+    if (b > 0) result.push(b + " बीघा");
+    if (k > 0) result.push(k + " कट्ठा");
+    if (dh > 0) result.push(dh + " धुर");
+    if (dk > 0) result.push(dk + " धुरकी");
+    
+    return result.length > 0 ? result.join(" - ") : "0 धुर";
+}
+
+// ============== ACCURATE DIAGRAM FUNCTIONS ==============
+function createScaledDiagram(shape, dims, unit) {
+    const w = 260, h = 180; 
+    const p = 20; 
+    const dw = w - 2*p, dh = h - 2*p;
+    
+    let svg = `<svg width="100%" height="200" viewBox="0 0 ${w} ${h}" style="max-width:300px;">
+        <rect width="${w}" height="${h}" fill="#fff" rx="10" />`;
+    
+    const vals = Object.values(dims).filter(v => v > 0);
+    if(vals.length === 0) return `<div style="padding:20px; color:#ccc;">Values डालें...</div>`;
+
+    if(shape === "rectangle") {
+        const L = dims.L || 1, W = dims.W || 1;
+        const max = Math.max(L, W);
+        const scale = Math.min(dw/max, dh/max) * 0.9;
+        const sw = L * scale, sh = W * scale;
+        const x = (w - sw)/2, y = (h - sh)/2;
+        
+        svg += `<rect x="${x}" y="${y}" width="${sw}" height="${sh}" fill="rgba(46,125,50,0.1)" stroke="#2e7d32" stroke-width="2"/>
+                <text x="${x+sw/2}" y="${y-5}" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">${dims.L||0}</text>
+                <text x="${x+sw+5}" y="${y+sh/2}" text-anchor="start" font-size="12" fill="#333" font-weight="bold">${dims.W||0}</text>`;
+    }
+    
+    else if(shape === "square") {
+        const S = dims.S || 1;
+        const scale = Math.min(dw/S, dh/S) * 0.7;
+        const ss = S * scale;
+        const x = (w-ss)/2, y = (h-ss)/2;
+        svg += `<rect x="${x}" y="${y}" width="${ss}" height="${ss}" fill="rgba(46,125,50,0.1)" stroke="#2e7d32" stroke-width="2"/>
+                <text x="${x+ss/2}" y="${y-5}" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">${dims.S||0}</text>`;
+    }
+    
+    else if(shape === "triangle") {
+        const A = dims.A || 1, B = dims.B || 1, C = dims.C || 1;
+        
+        if(A+B<=C || A+C<=B || B+C<=A) {
+             svg += `<text x="${w/2}" y="${h/2}" text-anchor="middle" fill="red">Invalid Dimensions</text></svg>`;
+             return svg;
+        }
+        
+        const x_top = (A*A + C*C - B*B) / (2*A);
+        let y_top_sq = C*C - x_top*x_top;
+        const y_top = y_top_sq > 0 ? Math.sqrt(y_top_sq) : 0;
+        
+        const maxX = Math.max(A, x_top), minX = Math.min(0, x_top);
+        const maxY = y_top, minY = 0;
+        
+        const rangeX = maxX - minX;
+        const rangeY = maxY - minY;
+        const scale = Math.min(dw/rangeX, dh/rangeY) * 0.8;
+        
+        const x1 = (w - rangeX*scale)/2 - minX*scale; 
+        const y1 = h - (h - rangeY*scale)/2; 
+        
+        const p1 = {x: x1, y: y1}; 
+        const p2 = {x: x1 + A*scale, y: y1}; 
+        const p3 = {x: x1 + x_top*scale, y: y1 - y_top*scale}; 
+        
+        svg += `<polygon points="${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y}" fill="rgba(46,125,50,0.1)" stroke="#2e7d32" stroke-width="2"/>
+                <text x="${(p1.x+p2.x)/2}" y="${p1.y+15}" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">${dims.A||0}</text>
+                <text x="${(p1.x+p3.x)/2 - 10}" y="${(p1.y+p3.y)/2}" text-anchor="end" font-size="12" fill="#333" font-weight="bold">${dims.C||0}</text>
+                <text x="${(p2.x+p3.x)/2 + 10}" y="${(p2.y+p3.y)/2}" text-anchor="start" font-size="12" fill="#333" font-weight="bold">${dims.B||0}</text>`;
+    }
+    
+    else if(shape === "parallelogram") {
+        // Visual approximation for Quadrilateral
+        const N = dims.m1 || 1, E = dims.m2 || 1, S = dims.m3 || 1, W = dims.m4 || 1;
+        const maxW = Math.max(N, S);
+        const maxH = Math.max(E, W);
+        const scale = Math.min(dw/maxW, dh/maxH) * 0.7;
+        
+        const sn = N * scale, se = E * scale, ss = S * scale, sw = W * scale;
+        const cx = w/2, cy = h/2;
+        const x_top_left = cx - sn/2;
+        const y_top = cy - maxH*scale/2;
+        const x_top_right = cx + sn/2;
+        
+        const x1 = x_top_left, y1 = y_top;
+        const x2 = x_top_right, y2 = y_top;
+        const avgH = (se + sw) / 2;
+        const x4 = cx - ss/2, y4 = y1 + avgH; 
+        const x3 = cx + ss/2, y3 = y1 + avgH; 
+        
+        svg += `<polygon points="${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4}" fill="rgba(46,125,50,0.1)" stroke="#2e7d32" stroke-width="2"/>
+                <text x="${(x1+x2)/2}" y="${y1-5}" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">${dims.m1||0} (N)</text>
+                <text x="${x3+5}" y="${(y2+y3)/2}" text-anchor="start" font-size="12" fill="#333" font-weight="bold">${dims.m2||0} (E)</text>
+                <text x="${(x3+x4)/2}" y="${y3+15}" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">${dims.m3||0} (S)</text>
+                <text x="${x4-5}" y="${(y1+y4)/2}" text-anchor="end" font-size="12" fill="#333" font-weight="bold">${dims.m4||0} (W)</text>`;
+                
+        if(dims.diag > 0) {
+             svg += `<line x1="${x1}" y1="${y1}" x2="${x3}" y2="${y3}" stroke="#d32f2f" stroke-dasharray="4"/>
+                     <text x="${(x1+x3)/2}" y="${(y1+y3)/2}" fill="#d32f2f" font-size="10">${dims.diag}</text>`;
+        }
+    }
+    
+    else if(shape === "circle") {
+        const d = dims.d || 1;
+        const scale = Math.min(dw/d, dh/d) * 0.8;
+        const r = (d*scale)/2;
+        svg += `<circle cx="${w/2}" cy="${h/2}" r="${r}" fill="rgba(46,125,50,0.1)" stroke="#2e7d32" stroke-width="2"/>
+                <line x1="${w/2-r}" y1="${h/2}" x2="${w/2+r}" y2="${h/2}" stroke="#333" stroke-dasharray="4"/>
+                <text x="${w/2}" y="${h/2-5}" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">${dims.d||0}</text>`;
+    }
+    
+    else {
+         svg += `<text x="${w/2}" y="${h/2}" text-anchor="middle" fill="#999">Preview</text>`;
+    }
+
+    svg += `</svg>`;
+    return svg;
+}
+
+function calculate() {
+    let areaKadi = 0, svg = "", s = document.getElementById('shape').value;
+    const laggi = parseFloat(document.getElementById('laggi').value);
+    const unit = document.getElementById('inputUnit').value;
+    const paimana = document.getElementById('paimana').value;
+    const oneDhur = Math.pow((laggi * 18) / 7.92, 2);
+
+    const getRaw = (id) => parseFloat(document.getElementById(id)?.value) || 0;
+    const getVal = (v) => {
+        if(unit === 'feet') return v / 0.66;
+        if(unit === 'meter') return (v * 3.28084) / 0.66;
+        if(unit === 'guz') return (v * 3) / 0.66;
+        return v;
+    };
+
+    try {
+        if(!s) throw "NoShape"; 
+        document.getElementById('warningArea').innerHTML = "";
+        
+        let dimensions = {};
+
+        if(s === "rectangle") {
+            let L = getRaw('L'), W = getRaw('W'); if(!L || !W) throw "Err";
+            areaKadi = getVal(L) * getVal(W); dimensions = {L, W};
+        } else if(s === "parallelogram") {
+            let n=getRaw('m1'), e=getRaw('m2'), s_side=getRaw('m3'), w=getRaw('m4'), d=getRaw('diag');
+            if(!n || !e || !s_side || !w) throw "Err";
+            dimensions = {m1: n, m2: e, m3: s_side, m4: w, diag: d};
+            if(d > 0) {
+                // Heron's on two triangles (split by diagonal)
+                let t1 = heron(getVal(n), getVal(e), getVal(d)); // Triangle 1: North, East, Diag? Check logic. 
+                // Wait, standard split: usually (N, W, Diag) and (S, E, Diag) or similar.
+                // Assuming Diag connects N-W corner to S-E corner
+                let t1_val = heron(getVal(n), getVal(d), getVal(w)); // N, W, Diag
+                let t2_val = heron(getVal(s_side), getVal(d), getVal(e)); // S, E, Diag
+                
+                // Let's use simple logic: Split N,E and S,W? No, needs adjacency.
+                // Simplification for user: We will try to calculate area using standard split if possible,
+                // otherwise fallback to average if diagonal fails triangle inequality.
+                
+                // Since we don't know diagonal connectivity from user input, we try N+E+D and S+W+D
+                let tri1 = heron(getVal(n), getVal(e), getVal(d)); 
+                let tri2 = heron(getVal(s_side), getVal(w), getVal(d));
+                
+                if(tri1 === 0 || tri2 === 0) {
+                     // Try other pair
+                     tri1 = heron(getVal(n), getVal(w), getVal(d));
+                     tri2 = heron(getVal(s_side), getVal(e), getVal(d));
+                }
+                
+                if(tri1 > 0 && tri2 > 0) {
+                    areaKadi = tri1 + tri2;
+                } else {
+                     throw "InvalidTri";
+                }
+            } else {
+                areaKadi = ((getVal(n)+getVal(s_side))/2) * ((getVal(e)+getVal(w))/2);
+                document.getElementById('warningArea').innerHTML = `<div class="warning-box"><span class="warning-icon">⚠️</span><div>औसत विधि (Average Method) का उपयोग हुआ है। सटीक माप हेतु विकर्ण भरें।</div></div>`;
+            }
+        } else if(s === "square") {
+            let S = getRaw('S'); if(!S) throw "Err";
+            areaKadi = Math.pow(getVal(S), 2); dimensions = {S};
+        } else if(s === "triangle") {
+            let a=getRaw('A'), b=getRaw('B'), c=getRaw('C');
+            areaKadi = heron(getVal(a), getVal(b), getVal(c)); if(areaKadi === 0) throw "InvalidTri";
+            dimensions = {A: a, B: b, C: c};
+        } else if(s === "right_triangle") {
+            let b=getRaw('B_base'), h=getRaw('H_height'); if(!b || !h) throw "Err";
+            areaKadi = 0.5 * getVal(b) * getVal(h); dimensions = {B_base: b, H_height: h};
+        } else if(s === "oval") {
+            let l=getRaw('ld'), w=getRaw('sd'); if(!l || !w) throw "Err";
+            areaKadi = (getVal(l) * getVal(w) * Math.PI) / 4; dimensions = {ld: l, sd: w};
+        } else if(s === "circle") {
+            let d=getRaw('d'); if(!d) throw "Err";
+            areaKadi = Math.PI * Math.pow(getVal(d)/2, 2); dimensions = {d};
+        }
+
+        if(!areaKadi || areaKadi <= 0) throw "Err";
+        
+        if (paimana === "32") areaKadi = areaKadi / 8;
+        else if (paimana === "64") areaKadi = areaKadi / 16;
+        
+        let dhur = areaKadi / oneDhur, ft = areaKadi * 0.4356, dec = areaKadi / 1000, guz = ft/9, mtr = ft/10.7639, resKDH = breakdown(dhur);
+        
+        document.getElementById('resultCard').style.display = "block";
+        document.getElementById('actionButtons').style.display = "grid";
+        
+        // Define global for sharing
+        window.currentResult = { resKDH, ft, laggi };
+
+        document.getElementById('resultContent').innerHTML = `
+            <div style="background:#fff; border:1px solid #e0e0e0; padding:12px; border-radius:8px; margin-bottom:12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom:6px;">
+                    <span style="font-size:13px; color:#64748b;">लग्गी:</span> 
+                    <b style="color:#2e7d32">${laggi} हाथ</b>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="font-size:13px; color:#64748b;">1 धुर:</span> 
+                    <b style="color:#2e7d32">${oneDhur.toFixed(3)} वर्ग कड़ी</b>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top:6px;">
+                    <span style="font-size:13px; color:#64748b;">पैमाना:</span> 
+                    <b style="color:#2e7d32">${paimana}" = 1 मील</b>
+                </div>
+            </div>
+            <div class="res-item"><span>कुल क्षेत्रफल</span> <b style="color:#2e7d32; font-size:16px;">${areaKadi.toFixed(2)} वर्ग कड़ी</b></div>
+            <div class="res-item"><span>वर्ग फीट</span> <b>${ft.toFixed(2)} ft²</b></div>
+            <div class="res-item"><span>वर्ग गज</span> <b>${guz.toFixed(2)} Guz²</b></div>
+            <div class="res-item"><span>वर्ग मीटर</span> <b>${mtr.toFixed(2)} m²</b></div>
+            <div class="res-item"><span>डिसमिल</span> <b>${dec.toFixed(3)} Dec</b></div>
+            <div class="res-item" style="background:#e8f5e9; padding:12px; border-radius:8px; margin-top:10px;">
+                <span style="font-weight:bold; color:#1b5e20;">कुल धुर</span> 
+                <b style="color:#1b5e20; font-size:18px;">${dhur.toFixed(3)} धुर</b>
+            </div>
+            <div class="res-item" style="font-size:17px; margin-top:10px;">
+                <span>पैमाइश:</span> 
+                <span class="highlight">${resKDH}</span>
+            </div>`;
+        
+        svg = createScaledDiagram(s, dimensions, unit);
+        document.getElementById('diagram').innerHTML = svg;
+        document.getElementById('scaleInfo').innerHTML = `Note: नक्शा आनुपातिक (Proportional) है।`;
+        
+        saveH(s, areaKadi, ft, dec, resKDH, laggi, dimensions, paimana);
+        
+        document.getElementById('resultCard').scrollIntoView({behavior: 'smooth'});
+
+    } catch(e) { 
+        if(e === "InvalidTri") showError("गलत माप! इन भुजाओं से आकार संभव नहीं है।");
+        else if(e === "NoShape") showError("कृपया पहले आकार चुनें!");
+        else showError("कृपया सभी जरूरी बॉक्स में सही माप भरें!"); 
+    }
+}
+
+function shareToWhatsApp() {
+    if(!window.currentResult) return;
+    const { resKDH, ft, laggi } = window.currentResult;
+    const text = `*Land Area Calculation* 📏\n\n*पैमाइश:* ${resKDH}\n*वर्ग फीट:* ${ft.toFixed(2)} ft²\n*लग्गी:* ${laggi} हाथ\n\nCalculated via: https://yourdomain.com`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function downloadImage() {
+    const element = document.getElementById("resultCard");
+    // Temporarily hide buttons for screenshot
+    document.getElementById("actionButtons").style.display = "none";
+    document.querySelector(".pdf-btn").style.display = "none";
+    
+    html2canvas(element).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "Land_Result.png";
+        link.href = canvas.toDataURL();
+        link.click();
+        
+        // Show buttons again
+        document.getElementById("actionButtons").style.display = "grid";
+        document.querySelector(".pdf-btn").style.display = "block";
+    });
+}
+
+function saveH(shape, kadi, ft, dec, kdh, laggi, dimensions, paimana) { 
+    let h = JSON.parse(localStorage.getItem('landCalcHist')) || []; 
+    h.unshift({
+        id: Date.now(), 
+        shape, 
+        kadi: kadi.toFixed(2), 
+        ft: ft.toFixed(2), 
+        dec: dec.toFixed(3), 
+        kdh, 
+        laggi, 
+        dimensions: JSON.stringify(dimensions),
+        paimana: paimana,
+        time: new Date().toLocaleTimeString('hi-IN', { hour: '2-digit', minute: '2-digit' }),
+        date: new Date().toLocaleDateString('hi-IN')
+    }); 
+    localStorage.setItem('landCalcHist', JSON.stringify(h.slice(0, 5))); 
+    renderHistory(); 
+    updateHistoryCount();
+}
+
+function renderHistory() { 
+    const list = document.getElementById('historyList'); 
+    let h = JSON.parse(localStorage.getItem('landCalcHist')) || []; 
+    
+    if(!h.length) {
+        list.innerHTML = `
+            <div class="no-history">
+                <div style="font-size: 24px; margin-bottom: 10px;">📝</div>
+                <div>अभी तक कोई गणना नहीं की गई है</div>
+            </div>`; 
+        return;
+    } 
+    
+    list.innerHTML = h.map(x => {
+        let paimanaBadge = "";
+        if (x.paimana === "32") paimanaBadge = '(32")';
+        else if (x.paimana === "64") paimanaBadge = '(64")';
+        
+        return `
+        <div class="history-item">
+            <div class="history-item-header">
+                <div class="history-time"><span>🕒</span> ${x.time} | ${x.date}</div>
+                <div class="history-shape">${x.shape.toUpperCase()} ${paimanaBadge}</div>
+            </div>
+            <div class="history-main">${x.kdh}</div>
+            <div class="history-grid">
+                <div class="history-grid-item"><span>वर्ग फीट</span><span>${x.ft}</span></div>
+                <div class="history-grid-item"><span>डिसमिल</span><span>${x.dec}</span></div>
+            </div>
+        </div>`;
+    }).join(''); 
+}
+
+function updateHistoryCount() {
+    const h = JSON.parse(localStorage.getItem('landCalcHist')) || [];
+    document.getElementById('historyCount').textContent = h.length;
+}
+
+function resetAll() { 
+    document.querySelectorAll('#inputs input').forEach(i => i.value=""); 
+    document.getElementById('resultCard').style.display="none"; 
+    document.getElementById('warningArea').innerHTML = "";
+    document.getElementById('diagram').innerHTML = "";
+    document.getElementById('previewContainer').style.display = "none";
+    document.getElementById('actionButtons').style.display = "none";
+}
+</script>
+</body>
+</html>
