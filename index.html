@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Land Tools App · खेत का क्षेत्रफल · मनीष कुमार</title>
+
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#059669">
   
   <meta name="description" content="सटीक Land Tools App: खेत का क्षेत्रफल, Dismil→Kattha, Unit Converter. बिहार, UP, MP के किसानों के लिए ग्रामीण इकाइयों में माप।">
   <meta name="keywords" content="Land Area Calculator, Bigha Kattha Dhur, Dismil to Kattha, Unit Converter, Manish Kumar, खेत का क्षेत्रफल, भूमि माप, कड़ी, लग्गी, पैमाना">
@@ -921,5 +924,11 @@
   });
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
+</script>
+  
 </body>
 </html>
