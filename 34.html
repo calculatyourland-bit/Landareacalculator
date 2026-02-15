@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Land Tools App · खेत का क्षेत्रफल · मनीष कुमार</title>
+  
+  <meta name="description" content="सटीक Land Tools App: खेत का क्षेत्रफल, Dismil→Kattha, Unit Converter. बिहार, UP, MP के किसानों के लिए ग्रामीण इकाइयों में माप।">
+  <meta name="keywords" content="Land Area Calculator, Bigha Kattha Dhur, Dismil to Kattha, Unit Converter, Manish Kumar, खेत का क्षेत्रफल, भूमि माप, कड़ी, लग्गी, पैमाना">
+  <meta name="author" content="Manish Kumar">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://landtools.app/">
+  <meta property="og:title" content="Land Tools App - खेत का क्षेत्रफल">
+  <meta property="og:description" content="बीघा, कट्ठा, धुर, डिसमिल में तुरंत भूमि माप। किसानों के लिए वरदान।">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://landtools.app/">
+  <meta name="theme-color" content="#059669">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAw0lEQVR4Ae3UMQ6CMBQG4B5GExPXHsC4cQY3R3Vx8grGxNVJ48IJ3HgV0hQrbQulpTT4V/63kL68vqYtYYwxxhhjjDHGGGOMMcYYY4wxxvif5wYwB8aAJ7AHTo1UfQa4e4O/glXgB3gDZ+ABjHw7V8Ab2PrtuALuD34z+jh+B7yAVtC+AXaA+0Pn+gJYCaq/A57APMjfC2Nf/gSsBfWXwEWQP0UwDvInCPKzYB7kj4P8KMiPgvwgyPfEGGOMMcYYY4zxfx4BTPY0pJ0lhLQAAAAASUVORK5CYII=">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Land Tools App",
+    "url": "https://landtools.app/",
+    "description": "खेत का क्षेत्रफल, Dismil→Kattha, Unit Converter – बीघा, कट्ठा, धुर, डिसमिल में सटीक गणना।",
+    "applicationCategory": "Utility",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Manish Kumar",
+      "email": "manishxyz659@gmail.com"
+    }
+  }
+  </script>
+
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --primary: #059669;
+      --primary-soft: #10b981;
+      --primary-dark: #047857;
+      --primary-gradient: linear-gradient(145deg, #059669, #10b981);
+      --bg-light: #f0fdf4;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #064e3b;
+      --text-soft: #065f46;
+      --text-muted: #047857;
+      --card-bg-1: rgba(236, 253, 245, 0.9);
+      --card-bg-2: rgba(209, 250, 229, 0.9);
+      --card-bg-3: rgba(167, 243, 208, 0.9);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    body {
+      background: linear-gradient(145deg, #d1fae5 0%, #a7f3d0 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 100px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M10 50 L30 30 L50 50 L70 30 L90 50" stroke="%23059669" fill="none" stroke-width="2"/><circle cx="30" cy="70" r="3" fill="%23059669"/><circle cx="70" cy="70" r="3" fill="%23059669"/></svg>');
+      background-size: 100px 100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Splash Screen */
+    #splash {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #064e3b, #059669);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      backdrop-filter: blur(20px);
+      gap: 24px;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .splash-logo-wrapper {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      padding: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      animation: pulseGlow 2s infinite;
+    }
+
+    .splash-logo {
+      font-size: 64px;
+      filter: drop-shadow(0 8px 20px rgba(255,255,255,0.3));
+      animation: float 2.5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.5); }
+      50% { box-shadow: 0 0 60px rgba(16, 185, 129, 0.8); }
+    }
+
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top: 4px solid white;
+      border-right: 4px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Main Content */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass-box {
+      width: 100%;
+      max-width: 700px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 28px 26px;
+      border-radius: 48px;
+      box-shadow: var(--shadow-lg);
+      animation: slideUp 0.6s var(--bounce);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .top {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(145deg, #059669, #10b981, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary-gradient);
+      border-radius: 4px;
+    }
+
+    .hero-name {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 8px 24px;
+      border-radius: 60px;
+      color: var(--text-dark);
+      border: 1px solid rgba(5, 150, 105, 0.2);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Ad Placeholder */
+    .ad-placeholder {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      margin: 24px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 90px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border: 2px dashed rgba(5, 150, 105, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ad-placeholder::before {
+      content: '📢';
+      font-size: 24px;
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+
+    /* Cards */
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 20px 0;
+    }
+
+    .card {
+      background: var(--card-bg-1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 32px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s var(--bounce);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary-gradient);
+    }
+
+    .card:nth-child(1) { background: var(--card-bg-1); }
+    .card:nth-child(2) { background: var(--card-bg-2); }
+    .card:nth-child(3) { background: var(--card-bg-3); }
+
+    .card:active {
+      transform: scale(0.97);
+    }
+
+    @media (hover: hover) {
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+    }
+
+    .icon-wrapper {
+      background: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .icon {
+      font-size: 44px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .card-description {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      line-height: 1.5;
+      padding: 0 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: auto;
+      padding: 14px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      background: var(--primary-gradient);
+      color: white;
+      border: none;
+      box-shadow: 0 10px 20px -8px var(--primary);
+      transition: all 0.2s var(--bounce);
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s;
+    }
+
+    .btn:active::after {
+      width: 200px;
+      height: 200px;
+    }
+
+    .btn:active {
+      transform: scale(0.94);
+    }
+
+    /* Bottom Navigation - Perfect Typography Match */
+    .bottom-nav-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-bottom: 16px;
+      pointer-events: none;
+    }
+
+    .bottom-nav {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 40px;
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 6px;
+      width: calc(100% - 32px);
+      max-width: 480px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      pointer-events: auto;
+    }
+
+    .bottom-nav-container.hidden {
+      transform: translateY(120px);
+    }
+
+    .nav-item {
+      text-decoration: none;
+      color: #1e293b;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 30px;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex: 1;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-item span:first-child {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .nav-item span:last-child {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      opacity: 0.9;
+    }
+
+    .nav-item:active {
+      transform: scale(0.9);
+    }
+
+    .nav-item.active {
+      background: rgba(255, 255, 255, 0.9);
+      color: #059669;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .nav-item.active span:first-child {
+      transform: translateY(-2px);
+      color: #059669;
+    }
+
+    .nav-item.active span:last-child {
+      color: #059669;
+      font-weight: 700;
+    }
+
+    @media (hover: hover) {
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.6);
+        color: #047857;
+      }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      font-size: 15px;
+      color: var(--text-soft);
+      text-align: center;
+      padding: 20px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 40px;
+      backdrop-filter: blur(5px);
+    }
+
+    .breathing-heart {
+      animation: breathe 2s ease-in-out infinite;
+      display: inline-block;
+      color: #ef4444;
+      transform-origin: center;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(239,68,68,0.3));
+      }
+      50% {
+        transform: scale(1.3);
+        filter: drop-shadow(0 0 8px rgba(239,68,68,0.6));
+      }
+    }
+
+    .developer-name {
+      font-weight: 800;
+      color: var(--primary-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+      .glass-box {
+        padding: 20px 16px;
+        border-radius: 32px;
+      }
+      
+      .tools {
+        gap: 16px;
+      }
+      
+      .card {
+        padding: 20px 16px;
+        border-radius: 28px;
+      }
+      
+      .icon-wrapper {
+        width: 64px;
+        height: 64px;
+      }
+      
+      .icon {
+        font-size: 36px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+
+      .nav-item {
+        font-size: 12px;
+        padding: 6px 8px;
+      }
+
+      .nav-item span:first-child {
+        font-size: 20px;
+      }
+
+      .nav-item span:last-child {
+        font-size: 11px;
+      }
+    }
+
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+<div id="splash">
+  <div class="splash-logo-wrapper">
+    <div class="splash-logo">🌱</div>
+  </div>
+  <h2 style="font-weight:500; letter-spacing:1px; color:white; text-shadow:0 2px 10px rgba(0,0,0,0.2);">Land Tools</h2>
+  <div class="loader"></div>
+</div>
+
+<div class="main-content" id="mainContent">
+  <header class="glass-box">
+    <div class="top">
+      <h1>🌾 Smart Land Tools</h1>
+      <div class="hero-name">
+        <span>📐 खेत का क्षेत्रफल · मनीष कुमार</span>
+      </div>
+    </div>
+
+    <!-- Ad Placeholder -->
+    <div class="ad-placeholder">
+      <span>विज्ञापन स्थान (Ad Space)</span>
+    </div>
+
+    <section class="tools">
+      <!-- Card 1: Khet Ka Kshetrafal - Links to khet-kshetrafal.html -->
+      <div class="card">
+        <div class="icon-wrapper">
+          <div class="icon">📏</div>
+        </div>
+        <h3>खेत का क्षेत्रफल</h3>
+        <div class="card-description">
+          बीघा, कट्ठा, धुर में अपने खेत का क्षेत्रफल नापें। किसानों के लिए बेहद उपयोगी।
+        </div>
+        <a href="khet-kshetrafal.html" class="btn">कैलकुलेटर खोलें →</a>
+      </div>
+
+      <!-- Card 2: Dismil → Kattha - Links to dismil-kattha.html -->
+      <div class="card">
+        <div class="icon-wrapper">
+          <div class="icon">🔄</div>
+        </div>
+        <h3>डिसमिल → कट्ठा</h3>
+        <div class="card-description">
+          डिसमिल को कट्ठा, धुर, वर्ग फुट में तुरंत बदलें। सटीक रूपांतरण टूल।
+        </div>
+        <a href="dismil-kattha.html" class="btn">कन्वर्ट करें →</a>
+      </div>
+
+      <!-- Card 3: Unit Converter - Links to unit-converter.html -->
+      <div class="card">
+        <div class="icon-wrapper">
+          <div class="icon">⚖️</div>
+        </div>
+        <h3>यूनिट कन्वर्टर</h3>
+        <div class="card-description">
+          बीघा, हेक्टेयर, एकड़, वर्ग मीटर, वर्ग फुट और भी बहुत कुछ।
+        </div>
+        <a href="unit-converter.html" class="btn">कन्वर्टर इस्तेमाल करें →</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>विकसित किया </span>
+      <span class="breathing-heart">❤️</span>
+      <span> </span>
+      <span class="developer-name">मनीष कुमार</span>
+      <span> · v5.0 · सटीकता की नई पहचान</span>
+    </footer>
+  </header>
+</div>
+
+<!-- Bottom Navigation - Perfect Typography Match -->
+<div class="bottom-nav-container" id="bottomNavContainer">
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item" id="nav-home">
+      <span>🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="khet-kshetrafal.html" class="nav-item" id="nav-khet">
+      <span>📏</span>
+      <span>Area</span>
+    </a>
+    <a href="dismil-kattha.html" class="nav-item" id="nav-convert">
+      <span>🔄</span>
+      <span>Dismil</span>
+    </a>
+    <a href="unit-converter.html" class="nav-item" id="nav-units">
+      <span>⚖️</span>
+      <span>Unit</span>
+    </a>
+  </nav>
+</div>
+
+<script>
+  (function() {
+    "use strict";
+
+    // Optimized splash screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splash');
+        if (splash) {
+          splash.style.opacity = '0';
+          setTimeout(() => {
+            splash.style.display = 'none';
+          }, 600);
+        }
+      }, 800);
+    });
+
+    // Throttled scroll handler for navbar
+    const navContainer = document.getElementById('bottomNavContainer');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    let scrollThreshold = 50;
+
+    function updateNavbar() {
+      const currentScrollY = window.scrollY;
+      
+      if (Math.abs(currentScrollY - lastScrollY) < 10) {
+        ticking = false;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+        navContainer.classList.add('hidden');
+      } else {
+        navContainer.classList.remove('hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Active link logic
+    function setActiveNavItem() {
+      const path = window.location.pathname;
+      const currentPage = path.split('/').pop() || '';
+      const isRoot = path === '/' || path.endsWith('/index.html') || currentPage === '';
+      
+      const navItems = document.querySelectorAll('.nav-item');
+      let activeSet = false;
+
+      navItems.forEach(item => {
+        const href = item.getAttribute('href');
+        item.classList.remove('active');
+        
+        if (isRoot && href === 'index.html') {
+          item.classList.add('active');
+          activeSet = true;
+        } else if (href === currentPage) {
+          item.classList.add('active');
+          activeSet = true;
+        }
+      });
+
+      if (!activeSet) {
+        const homeNav = document.getElementById('nav-home');
+        if (homeNav) homeNav.classList.add('active');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setActiveNavItem);
+    } else {
+      setActiveNavItem();
+    }
+
+    document.body.style.overscrollBehavior = 'none';
+  })();
+</script>
+
+<script>
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      setTimeout(() => {
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => item.classList.remove('active'));
+        
+        const path = window.location.pathname;
+        const currentPage = path.split('/').pop() || '';
+        
+        if (path === '/' || path.endsWith('/index.html') || currentPage === '') {
+          document.getElementById('nav-home')?.classList.add('active');
+        } else {
+          document.querySelector(`.nav-item[href="${currentPage}"]`)?.classList.add('active');
+        }
+      }, 50);
+    }
+  });
+</script>
+
+</body>
+</html>
