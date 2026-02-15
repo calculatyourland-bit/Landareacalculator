@@ -1,6 +1,6 @@
 {
   "name": "Land Area Calculator",
-  "short_name": "LandCalc",
+  "short_name": "LandCalculator",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
