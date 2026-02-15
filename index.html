@@ -48,6 +48,33 @@
   </script>
 
   <style>
+.install-floating {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  display: none;
+  z-index: 9999;
+
+  /* Glass Effect */
+  backdrop-filter: blur(20px);
+  background: rgba(5, 150, 105, 0.85);
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+  transition: all 0.3s ease;
+}
+
+.install-floating:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+    
     /* Reset & Base */
     * {
       margin: 0;
@@ -658,7 +685,7 @@
 </head>
 <body>
 
-  <button id="installBtn" style="display:none;">
+ <button id="installAppBtn" class="install-floating">
   📲 Install App
 </button>
 
@@ -926,6 +953,32 @@
       }, 50);
     }
   });
+
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById('installAppBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'block';
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+
+  if (outcome === 'accepted') {
+    console.log('User installed the app');
+  }
+
+  installBtn.style.display = 'none';
+  deferredPrompt = null;
+});
+</script>
+  
 </script>
 
 <script>
