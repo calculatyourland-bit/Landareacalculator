@@ -653,6 +653,18 @@
     html {
       scroll-behavior: smooth;
     }
+
+    .custom-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.nav-custom-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
   </style>
 </head>
 <body>
@@ -707,11 +719,13 @@
       <!-- Card 3: कट्ठा-डिसमिल (Replaced Unit Converter) -->
       <div class="card">
         <div class="icon-wrapper">
-          <div class="icon">⚖️🔄</div>
+          <div class="icon">
+  <img src="kattha-dismil-icon.png" alt="Kattha Dismil Convert" class="custom-icon">
+</div>
         </div>
         <h3>कट्ठा-डिसमिल</h3>
         <div class="card-description">
-          कट्ठा से डिसमिल और डिसमिल से कट्ठा में तुरंत बदलें। दोतरफा रूपांतरण।
+          बीघा,कट्ठा,धुर,धुड़की से डिसमिल,एकर,हेक्टर में आसानी से और तुरंत बदलें।
         </div>
         <a href="kattha-dismil.html" class="btn" onclick="handleNavigation(event, 'kattha-dismil.html')">कन्वर्टर इस्तेमाल करें →</a>
       </div>
@@ -753,7 +767,9 @@
       <span>Dismil</span>
     </a>
     <a href="kattha-dismil.html" class="nav-item" id="nav-kattha-dismil" onclick="handleNavClick(event, this)">
-      <span>⚖️🔄</span>
+      <span>
+  <img src="kattha-dismil-icon.png" alt="Kattha Dismil" class="nav-custom-icon">
+</span>
       <span>Kattha↔Dismil</span>
     </a>
   </nav>
