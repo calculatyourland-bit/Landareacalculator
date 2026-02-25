@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <meta name="description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAw0lEQVR4Ae3UMQ6CMBQG4B5GExPXHsC4cQY3R3Vx8grGxNVJ48IJ3HgV0hQrbQulpTT4V/63kL68vqYtYYwxxhhjjDHGGGOMMcYYY4wxxvif5wYwB8aAJ7AHTo1UfQa4e4O/glXgB3gDZ+ABjHw7V8Ab2PrtuALuD34z+jh+B7yAVtC+AXaA+0Pn+gJYCaq/A57APMjfC2Nf/gSsBfWXwEWQP0UwDvInCPKzYB7kj4P8KMiPgvwgyPfEGGOMMcYYY4zxfx4BTPY0pJ0lhLQAAAAASUVORK5CYII=">
+    <script type="application/ld+json" id="schema-json"></script>
+</head>
+<body>
+
+<div id="splash">
+    <div class="splash-logo-wrapper"><div class="splash-logo">📖</div></div>
+    <div class="loader"></div>
+</div>
+
+<div class="main-content">
+    <header class="glass-box post-container" id="postContainer">
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        <div class="error-message" id="errorMessage" style="display:none;"></div>
+    </header>
+</div>
+
+<div id="navbar-container"></div>
+
+<script src="../assets/post.js"></script>
+<script>
+    (function() {
+        fetch('../components/navbar.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '../components/navbar.css';
+                document.head.appendChild(link);
+                const script = document.createElement('script');
+                script.src = '../components/navbar.js';
+                document.body.appendChild(script);
+            });
+    })();
+</script>
+</body>
+</html>
