@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>किसान ब्लॉग - खेती, भूमि माप और सरकारी योजनाएँ</title>
+    <meta name="description" content="किसान भाईयों के लिए उपयोगी लेख - खेती की सलाह, भूमि माप की जानकारी, सरकारी योजनाएँ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/blog/blog.html">
+    <meta property="og:title" content="किसान ब्लॉग - खेती, भूमि माप और सरकारी योजनाएँ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/blog/blog.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAw0lEQVR4Ae3UMQ6CMBQG4B5GExPXHsC4cQY3R3Vx8grGxNVJ48IJ3HgV0hQrbQulpTT4V/63kL68vqYtYYwxxhhjjDHGGGOMMcYYY4wxxvif5wYwB8aAJ7AHTo1UfQa4e4O/glXgB3gDZ+ABjHw7V8Ab2PrtuALuD34z+jh+B7yAVtC+AXaA+0Pn+gJYCaq/A57APMjfC2Nf/gSsBfWXwEWQP0UwDvInCPKzYB7kj4P8KMiPgvwgyPfEGGOMMcYYY4zxfx4BTPY0pJ0lhLQAAAAASUVORK5CYII=">
+</head>
+<body>
 
+<div id="splash">
+    <div class="splash-logo-wrapper"><div class="splash-logo">📰</div></div>
+    <h2 style="color:white;">किसान ब्लॉग</h2>
+    <div class="loader"></div>
+</div>
+
+<div class="main-content">
+    <header class="glass-box">
+        <div class="blog-main-header">
+            <h1>📰 किसान ब्लॉग</h1>
+            <p>खेती-किसानी, भूमि माप और सरकारी योजनाओं की जानकारी</p>
+        </div>
+
+        <div class="blog-stats" id="blogStats">
+            <div class="stat-item"><span class="stat-icon">📝</span><span><span class="stat-number" id="totalPosts">0</span> लेख</span></div>
+            <div class="stat-item"><span class="stat-icon">📚</span><span><span class="stat-number" id="totalCategories">0</span> श्रेणियाँ</span></div>
+        </div>
+
+        <div class="blog-toolbar">
+            <div class="blog-search">
+                <span class="blog-search-icon">🔍</span>
+                <input type="text" placeholder="लेख खोजें..." id="searchInput">
+            </div>
+            <div class="blog-categories" id="categoryFilter"></div>
+        </div>
+
+        <div class="ad-container">विज्ञापन स्थान (Ad Space)</div>
+
+        <div id="featuredPost"></div>
+
+        <h2 style="margin:30px 0 15px;">📚 सभी लेख</h2>
+        <div class="blog-grid" id="blogGrid"></div>
+
+        <div class="blog-pagination" id="pagination"></div>
+
+        <div class="newsletter-section">
+            <h3>📧 नए लेखों के लिए सब्सक्राइब करें</h3>
+            <p>हर नया लेख सबसे पहले आपके ईमेल पर पाएं।</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="अपना ईमेल लिखें" required>
+                <button type="submit" class="admin-btn">सब्सक्राइब करें</button>
+            </form>
+        </div>
+    </header>
+</div>
+
+<div id="navbar-container"></div>
+
+<script src="../assets/blog.js"></script>
+<script>
+    (function() {
+        fetch('../components/navbar.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '../components/navbar.css';
+                document.head.appendChild(link);
+                const script = document.createElement('script');
+                script.src = '../components/navbar.js';
+                document.body.appendChild(script);
+            });
+    })();
+</script>
+</body>
+</html>
