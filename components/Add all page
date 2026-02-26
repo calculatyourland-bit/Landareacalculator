@@ -1,0 +1,34 @@
+<!-- Load Navbar Component -->
+<div id="navbar-container"></div>
+
+<script>
+  (function() {
+    // Load navbar HTML
+    fetch('/components/navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+        
+        // Load CSS
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/components/navbar.css';
+        document.head.appendChild(link);
+        
+        // Load JS
+        const script = document.createElement('script');
+        script.src = '/components/navbar.js';
+        script.onload = function() {
+          // Initialize if function exists
+          if (typeof window.initNavbar === 'function') {
+            window.initNavbar();
+          }
+        };
+        document.body.appendChild(script);
+      })
+      .catch(error => {
+        console.error('Failed to load navbar:', error);
+        // Fallback to manual method
+      });
+  })();
+</script>
