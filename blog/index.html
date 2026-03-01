@@ -406,19 +406,20 @@
       });
   })();
 
-// Make full blog card clickable
-document.querySelectorAll('.blog-card').forEach(card => {
-  card.style.cursor = "pointer";
+// FULL BLOG CARD CLICKABLE
+document.addEventListener('click', function(e) {
 
-  card.addEventListener('click', function(e) {
-    // Prevent double trigger when clicking actual link
-    if (e.target.closest('a')) return;
+  const card = e.target.closest('.blog-card');
+  if (!card) return;
 
-    const link = card.querySelector('.read-more');
-    if (link) {
-      window.location.href = link.href;
-    }
-  });
+  // Agar link pe hi click hua ho to skip
+  if (e.target.closest('a')) return;
+
+  const link = card.querySelector('.read-more');
+  if (link) {
+    window.location.href = link.getAttribute('href');
+  }
+
 });
   
 </script>
