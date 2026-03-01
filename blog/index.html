@@ -405,6 +405,22 @@
         // Fallback to manual method
       });
   })();
+
+// Make full blog card clickable
+document.querySelectorAll('.blog-card').forEach(card => {
+  card.style.cursor = "pointer";
+
+  card.addEventListener('click', function(e) {
+    // Prevent double trigger when clicking actual link
+    if (e.target.closest('a')) return;
+
+    const link = card.querySelector('.read-more');
+    if (link) {
+      window.location.href = link.href;
+    }
+  });
+});
+  
 </script>
   
 <div class="main-content">
@@ -436,13 +452,13 @@
         😕 कोई जानकारी नहीं मिली। कृपया कुछ और खोजें।
       </div>
 
-      <article class="blog-card" data-category="ज़मीन नापी">
+      <article class="blog-card" data-category="सरकारी योजनाएं">
         <div class="card-image">
-          <span class="category-badge">ज़मीन नापी</span>
-          <img src="/image/1.png" alt="खेत में लग्गी से ज़मीन नापते किसान" loading="lazy">
+          <span class="category-badge">सरकारी योजनाएं</span>
+          <img src="/image/Udyami-yojana.png" alt="खेत में लग्गी से ज़मीन नापते किसान" loading="lazy">
         </div>
         <div class="card-content">
-          <h2 class="card-title">बिहार उद्यमी योजना 2026</h2>
+          <h2 class="card-title">बिहार उद्यमी योजना 2026:पूरी जानकारी, पात्रता, लाभ, और ऑनलाइन आवेदन प्रक्रिया </h2>
           <p class="card-excerpt">बिहार में रोजगार और उद्यम को बढ़ावा देने ले लिए, बिहार उद्यमी योजना 2026 के लिए आवेदन सुरु।</p>
           <div class="card-footer">
             <span class="card-meta">📅 26 फरवरी 2026</span>
