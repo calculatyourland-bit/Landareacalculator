@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://www.landareacalculator.in/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/about/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/contact/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/privacy-policy/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/disclaimer/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Blog Section -->
+  <url>
+    <loc>https://www.landareacalculator.in/blog/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Example Blog Posts (Replace with real URLs) -->
+  <url>
+    <loc>https://www.landareacalculator.in/post/bihar-udyami-yojana-2026/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/zameen-ki-registri-ke-niyam/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/bigha-katha-dhur-antar/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+</urlset>
