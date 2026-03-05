@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | LandAreaCalculator.in</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f8faf8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .privacy-container {
+      max-width: 1000px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0, 30, 10, 0.15);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .privacy-header {
+      background: linear-gradient(135deg, #f0f7f0 0%, #e6f0e6 100%);
+      padding: 2.5rem 3rem;
+      border-bottom: 1px solid #d0e0d0;
+    }
+
+    .privacy-header h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #1a3b2a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .privacy-header h1 span {
+      color: #2b6e4c;
+      font-weight: 700;
+    }
+
+    .last-updated {
+      display: inline-block;
+      background: #d8e8d8;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #1d4a2d;
+      margin-top: 0.8rem;
+      border: 1px solid #9bc0a5;
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      color: #2a4a35;
+      line-height: 1.5;
+      margin-top: 1.2rem;
+      max-width: 800px;
+    }
+
+    /* Content */
+    .privacy-content {
+      padding: 2.5rem 3rem;
+    }
+
+    /* Policy Sections */
+    .policy-section {
+      margin-bottom: 2.2rem;
+      border-bottom: 1px solid #e0ede0;
+      padding-bottom: 1.8rem;
+    }
+
+    .policy-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1d3b2a;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-number {
+      width: 36px;
+      height: 36px;
+      background: #2b6e4c;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .subsection {
+      margin: 1.2rem 0 1.2rem 1.5rem;
+    }
+
+    .subsection-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #256c3b;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-list {
+      list-style: none;
+      margin: 0.8rem 0 1rem 1rem;
+    }
+
+    .info-list li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      color: #1f402e;
+      font-size: 1rem;
+    }
+
+    .info-list li::before {
+      content: "•";
+      color: #2b6e4c;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .bullet-list {
+      margin: 0.8rem 0 1rem 2rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.5rem;
+      color: #2b543b;
+      list-style-type: disc;
+    }
+
+    .highlight-box {
+      background: #f4fbf4;
+      border-left: 4px solid #2b6e4c;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .note-text {
+      color: #4a6b55;
+      font-style: italic;
+      margin-top: 0.3rem;
+    }
+
+    /* Contact footer */
+    .privacy-footer {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: #f0f7f0;
+      border-radius: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .privacy-footer p {
+      color: #1d3b2a;
+      font-size: 1rem;
+    }
+
+    .contact-link {
+      background: #1d4a2d;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid #38754c;
+    }
+
+    .contact-link:hover {
+      background: #256c3b;
+    }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      text-align: center;
+      color: #4f725b;
+      font-size: 0.9rem;
+      border-top: 1px solid #d0e0d0;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .privacy-header, .privacy-content {
+        padding: 2rem 1.5rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+      .subsection {
+        margin-left: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .privacy-header h1 {
+        font-size: 1.8rem;
+      }
+      .section-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="privacy-container">
+    <!-- Privacy Policy Header -->
+    <div class="privacy-header">
+      <h1>Privacy <span>Policy</span></h1>
+      <div class="last-updated">Last Updated: 15 March 2025</div>
+      <div class="intro-text">
+        LandAreaCalculator.in par aapka swagat hai. Hamari website par aapki privacy hamare liye mahatvapurn hai. Is Privacy Policy me bataya gaya hai ki hum kaunsi jaankari collect karte hain aur uska upyog kaise karte hain.
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="privacy-content">
+      <!-- Section 1 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">1</span>
+          <span>Information We Collect</span>
+        </div>
+        
+        <div class="subsection">
+          <div class="subsection-title">🔹 Personal Information</div>
+          <p style="color: #1f402e; margin-bottom: 0.8rem;">Jab aap hume contact form ya email ke madhyam se sampark karte hain, tab hum aapka:</p>
+          <ul class="info-list">
+            <li>Name</li>
+            <li>Email Address</li>
+            <li>Message content</li>
+          </ul>
+          <p style="color: #2b543b;">collect kar sakte hain.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">🔹 Non-Personal Information</div>
+          <p style="color: #1f402e; margin-bottom: 0.8rem;">Jaise:</p>
+          <ul class="info-list">
+            <li>Browser type</li>
+            <li>Device information</li>
+            <li>Pages visited</li>
+            <li>Time spent on website</li>
+          </ul>
+          <p style="color: #2b543b;">Ye jaankari analytics tools ke madhyam se collect ho sakti hai.</p>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">2</span>
+          <span>Cookies</span>
+        </div>
+        <p style="color: #1f402e; margin-bottom: 1rem;">Hamari website cookies ka upyog kar sakti hai taaki:</p>
+        <ul class="info-list">
+          <li>User experience improve ho</li>
+          <li>Website performance track ho</li>
+          <li>Relevant advertisements dikhaye ja saken</li>
+        </ul>
+        <div class="highlight-box">
+          ⚙️ Aap apne browser settings me jaakar cookies disable kar sakte hain.
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">3</span>
+          <span>Third-Party Services</span>
+        </div>
+        <p style="color: #1f402e; margin-bottom: 0.8rem;">Hamari website third-party services ka upyog kar sakti hai, jaise:</p>
+        <ul class="info-list">
+          <li>Google (Analytics aur ads ke liye)</li>
+          <li>Google AdSense (Advertisements ke liye)</li>
+        </ul>
+        <p style="color: #2b543b;">Ye services apni cookies aur tracking technology ka use kar sakti hain. Inki apni privacy policies hoti hain.</p>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">4</span>
+          <span>Google AdSense</span>
+        </div>
+        <p style="color: #1f402e; margin-bottom: 0.8rem;">Hum future me ya vartaman me ads dikhane ke liye Google AdSense ka upyog kar sakte hain. Google third-party vendors ki cookies ka upyog karta hai taaki users ko unke previous visits ke aadhar par ads dikhaye ja saken.</p>
+        <div class="highlight-box">
+          🛡️ Users <strong>Google ad settings</strong> ke madhyam se personalized advertising ko manage kar sakte hain.
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">5</span>
+          <span>Data Protection</span>
+        </div>
+        <p style="color: #1f402e;">Hum aapki personal information ko surakshit rakhne ke liye reasonable steps lete hain. Lekin internet par koi bhi data transmission 100% secure nahi hota.</p>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">6</span>
+          <span>External Links</span>
+        </div>
+        <p style="color: #1f402e;">Hamari website par dusri websites ke links ho sakte hain. Hum un external websites ki privacy policy ya content ke liye zimmedar nahi hain.</p>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">7</span>
+          <span>Children’s Information</span>
+        </div>
+        <p style="color: #1f402e;">Hamari website 13 saal se kam umr ke bachchon se jaanbujhkar personal information collect nahi karti.</p>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">8</span>
+          <span>Consent</span>
+        </div>
+        <p style="color: #1f402e;">Hamari website ka upyog karke aap is Privacy Policy se sahmat hote hain.</p>
+      </div>
+
+      <!-- Section 9 -->
+      <div class="policy-section">
+        <div class="section-title">
+          <span class="section-number">9</span>
+          <span>Changes to This Policy</span>
+        </div>
+        <p style="color: #1f402e;">Hum kabhi bhi is Privacy Policy ko update kar sakte hain. Updated version isi page par publish kiya jayega.</p>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="privacy-footer">
+        <p>📩 <strong>Is Privacy Policy se sambandhit koi sawal?</strong></p>
+        <a href="#" class="contact-link">Contact Us Page →</a>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="footer-note">
+        <p>© LandAreaCalculator.in — Aapki privacy, hamari zimmedari</p>
+        <p style="margin-top: 0.3rem; font-size: 0.85rem;">🔐 Safe · Secure · Transparent</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

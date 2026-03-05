@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | LandAreaCalculator.in</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f8faf8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    /* About page container - professional, clean */
+    .about-container {
+      max-width: 1000px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0, 30, 10, 0.15);
+      overflow: hidden;
+    }
+
+    /* Header section - about us specific */
+    .about-header {
+      background: linear-gradient(135deg, #f0f7f0 0%, #e6f0e6 100%);
+      padding: 2.5rem 3rem;
+      border-bottom: 1px solid #d0e0d0;
+    }
+
+    .about-header h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #1a3b2a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .about-header h1 span {
+      color: #2b6e4c;
+      font-weight: 700;
+    }
+
+    .about-header .welcome-text {
+      font-size: 1.1rem;
+      color: #2a4a35;
+      max-width: 700px;
+      line-height: 1.5;
+      margin-top: 1rem;
+    }
+
+    /* Content sections */
+    .about-content {
+      padding: 2.5rem 3rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1d3b2a;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-title .icon-circle {
+      width: 36px;
+      height: 36px;
+      background: #e2f0e2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2b6e4c;
+      font-size: 1.2rem;
+    }
+
+    .section-title .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, #c0dac0, transparent);
+    }
+
+    /* Mission points - clean grid */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .mission-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.8rem 1.2rem;
+      background: #f8fbf8;
+      border-radius: 16px;
+      border: 1px solid #e0ede0;
+    }
+
+    .mission-item .bullet {
+      width: 24px;
+      height: 24px;
+      background: #2b6e4c;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .mission-item p {
+      color: #1f402e;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Services cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin: 1rem 0 0.8rem 0;
+    }
+
+    .service-card {
+      background: #f9fcf9;
+      border: 1px solid #d8e8d8;
+      border-radius: 18px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: #9bc0a5;
+      box-shadow: 0 5px 15px rgba(30, 80, 40, 0.08);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f402e;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #4a6b55;
+      line-height: 1.4;
+    }
+
+    /* Note box for disclaimer */
+    .disclaimer-box {
+      background: #fcf9f0;
+      border-left: 4px solid #d4a14b;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .disclaimer-box h4 {
+      color: #7a5c2e;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .disclaimer-box p {
+      color: #4a4f3a;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    /* Features list for user experience */
+    .features-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .feature-tag {
+      background: #eaf2ea;
+      color: #1d4a2d;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid #bcd5bc;
+    }
+
+    /* Contact section */
+    .contact-section {
+      background: #f0f7f0;
+      border-radius: 24px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1d3b2a;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info p {
+      color: #2b543b;
+      font-size: 1rem;
+    }
+
+    .contact-btn {
+      background: #1d4a2d;
+      color: white;
+      padding: 0.8rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1px solid #38754c;
+      transition: background 0.15s;
+      display: inline-block;
+    }
+
+    .contact-btn:hover {
+      background: #256c3b;
+    }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      text-align: center;
+      border-top: 1px solid #d0e0d0;
+      color: #4f725b;
+      font-size: 0.9rem;
+    }
+
+    .regional-note {
+      background: #f5f9f5;
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 1rem 0 0 0;
+      font-size: 0.95rem;
+      color: #2d553a;
+      border: 1px solid #c6ddc6;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .about-header, .about-content {
+        padding: 2rem 1.5rem;
+      }
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+      .contact-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-header h1 {
+        font-size: 1.8rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="about-container">
+    <!-- About Us Header -->
+    <div class="about-header">
+      <h1>About <span>Us</span></h1>
+      <div class="welcome-text">
+        Welcome to LandAreaCalculator.in – ek online platform jo zameen ki measurement aur area calculation ko aasaan banata hai. Yahan aap alag-alag land units jaise बीघा, कट्ठा, धुर, डिसमिल, वर्गफुट, वर्गमीटर mein conversion aur calculation kar sakte hain.
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="about-content">
+      <!-- Hamara Uddeshya -->
+      <div class="section">
+        <div class="section-title">
+          <span class="icon-circle">🎯</span>
+          <span>Hamara Uddeshya</span>
+          <span class="line"></span>
+        </div>
+        <div class="mission-grid">
+          <div class="mission-item">
+            <div class="bullet">1</div>
+            <p>Log bina confusion ke land area calculate kar saken</p>
+          </div>
+          <div class="mission-item">
+            <div class="bullet">2</div>
+            <p>Regional land units ko aasani se convert kar saken</p>
+          </div>
+          <div class="mission-item">
+            <div class="bullet">3</div>
+            <p>Hindi bhasha mein sahi aur useful jaankari mile</p>
+          </div>
+          <div class="mission-item">
+            <div class="bullet">4</div>
+            <p>Farmers, property buyers aur students ko practical madad mile</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hum Kya Provide Karte Hain -->
+      <div class="section">
+        <div class="section-title">
+          <span class="icon-circle">📦</span>
+          <span>Hum Kya Provide Karte Hain</span>
+          <span class="line"></span>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">📐</div>
+            <h3>Land Area Calculator</h3>
+            <p>Online tool for quick and accurate area calculation</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔄</div>
+            <h3>Unit Conversion</h3>
+            <p>Convert between बीघा, कट्ठा, धुर, डिसमिल, sqft, sqm</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📝</div>
+            <h3>Informational Blogs</h3>
+            <p>Zameen se judi useful jaankari aur guides</p>
+          </div>
+        </div>
+        <p style="color: #4a6b55; font-size: 0.95rem; margin-top: 1rem; font-style: italic;">
+          Website par diye gaye tools ko maximum accurate banane ki koshish ki gayi hai. Alag-alag rajyon mein land measurement ke standards badal sakte hain.
+        </p>
+      </div>
+
+      <!-- Accuracy & Responsibility -->
+      <div class="disclaimer-box">
+        <h4>⚖️ Accuracy & Responsibility</h4>
+        <p>LandAreaCalculator.in par di gayi jaankari sirf educational aur informational purpose ke liye hai. Yeh kisi bhi prakar ki legal ya professional advice nahi hai. Kisi bhi official ya legal kaam ke liye hamesha sambandhit sarkari vibhaag ya adhikarik record ki pushti karein.</p>
+      </div>
+
+      <!-- User Experience -->
+      <div class="section">
+        <div class="section-title">
+          <span class="icon-circle">📱</span>
+          <span>User Experience</span>
+          <span class="line"></span>
+        </div>
+        <div class="features-row">
+          <span class="feature-tag">📱 Mobile friendly</span>
+          <span class="feature-tag">⚡ Fast loading</span>
+          <span class="feature-tag">🧭 Simple navigation</span>
+          <span class="feature-tag">🔄 Regularly updated</span>
+        </div>
+        <p style="color: #1f402e; margin-top: 0.8rem;">Hamari priority hai users ko safe, clean aur useful experience dena.</p>
+      </div>
+
+      <!-- Regional Note -->
+      <div class="regional-note">
+        ⏺️ Different states may have different standards for बीघा, कट्ठा etc. Always verify locally.
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-section">
+        <div class="contact-info">
+          <h3>📬 Contact Us</h3>
+          <p>Agar aapke paas koi sujhav, sawaal ya feedback hai to humse sampark karein.</p>
+        </div>
+        <a href="#" class="contact-btn">Contact Us Page →</a>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="footer-note">
+        <p>© LandAreaCalculator.in — Saaf, samajhne layak jaankari aapki bhasha mein</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">बीघा · कट्ठा · धुर · डिसमिल · वर्गफुट · वर्गमीटर</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

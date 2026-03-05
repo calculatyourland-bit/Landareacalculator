@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | LandAreaCalculator.in</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f8faf8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .contact-container {
+      max-width: 1100px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0, 30, 10, 0.15);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .contact-header {
+      background: linear-gradient(135deg, #f0f7f0 0%, #e6f0e6 100%);
+      padding: 2.5rem 3rem;
+      border-bottom: 1px solid #d0e0d0;
+    }
+
+    .contact-header h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #1a3b2a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-header h1 span {
+      color: #2b6e4c;
+      font-weight: 700;
+    }
+
+    .contact-header .subtitle {
+      font-size: 1.2rem;
+      color: #2a4a35;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-header .description {
+      font-size: 1.1rem;
+      color: #2a4a35;
+      max-width: 700px;
+      line-height: 1.5;
+    }
+
+    /* Content */
+    .contact-content {
+      padding: 2.5rem 3rem;
+    }
+
+    /* Two column layout for email and form */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Email Support Card */
+    .email-support {
+      background: #f9fcf9;
+      border: 1px solid #d8e8d8;
+      border-radius: 24px;
+      padding: 2rem;
+    }
+
+    .support-icon {
+      width: 48px;
+      height: 48px;
+      background: #e2f0e2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .email-support h2 {
+      font-size: 1.5rem;
+      color: #1d3b2a;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .email-support p {
+      color: #2b543b;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .email-box {
+      background: white;
+      border: 1px solid #c0dac0;
+      border-radius: 16px;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .email-label {
+      font-size: 0.9rem;
+      color: #4a6b55;
+      margin-bottom: 0.3rem;
+    }
+
+    .email-address {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1d4a2d;
+      word-break: break-all;
+    }
+
+    .response-note {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #4a6b55;
+      font-size: 0.95rem;
+      padding: 0.8rem;
+      background: #eaf2ea;
+      border-radius: 12px;
+    }
+
+    /* Contact Form */
+    .contact-form-section {
+      background: #f9fcf9;
+      border: 1px solid #d8e8d8;
+      border-radius: 24px;
+      padding: 2rem;
+    }
+
+    .contact-form-section h2 {
+      font-size: 1.5rem;
+      color: #1d3b2a;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #1f402e;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #c0dac0;
+      border-radius: 16px;
+      font-size: 1rem;
+      background: white;
+      transition: all 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2b6e4c;
+      box-shadow: 0 0 0 3px rgba(43, 110, 76, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      color: #4a6b55;
+      margin-bottom: 1.5rem;
+      padding: 0.8rem;
+      background: #eaf2ea;
+      border-radius: 12px;
+    }
+
+    .submit-btn {
+      background: #1d4a2d;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.15s;
+      border: 1px solid #38754c;
+    }
+
+    .submit-btn:hover {
+      background: #256c3b;
+    }
+
+    /* Message Types */
+    .message-types {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: #f8fbf8;
+      border-radius: 24px;
+      border: 1px solid #d0e0d0;
+    }
+
+    .message-types h3 {
+      font-size: 1.3rem;
+      color: #1d3b2a;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .type-tag {
+      background: white;
+      border: 1px solid #c0dac0;
+      border-radius: 40px;
+      padding: 0.6rem 1.2rem;
+      text-align: center;
+      color: #1f402e;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Important Note & Response Time */
+    .info-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .important-note {
+      background: #fcf9f0;
+      border-left: 4px solid #d4a14b;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .important-note h4 {
+      color: #7a5c2e;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .important-note p {
+      color: #4a4f3a;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    .response-time {
+      background: #e8f2e8;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .response-time h4 {
+      color: #1d4a2d;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .response-time p {
+      color: #1f402e;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    .response-time .highlight {
+      font-weight: 600;
+      color: #1d4a2d;
+    }
+
+    /* Footer */
+    .footer-note {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 1px solid #d0e0d0;
+      color: #4f725b;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .contact-header, .contact-content {
+        padding: 2rem 1.5rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .info-boxes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-header h1 {
+        font-size: 1.8rem;
+      }
+      .email-address {
+        font-size: 1.1rem;
+      }
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <!-- Contact Header -->
+    <div class="contact-header">
+      <h1>Contact <span>Us</span></h1>
+      <div class="subtitle">Get in Touch</div>
+      <div class="description">
+        Agar aapko LandAreaCalculator.in ke tools, blog content ya kisi bhi jaankari se related koi sawaal hai, to aap humse sampark kar sakte hain. Hum users ke feedback aur suggestions ka swagat karte hain.
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="contact-content">
+      <!-- Email and Form Grid -->
+      <div class="contact-grid">
+        <!-- Email Support -->
+        <div class="email-support">
+          <div class="support-icon">📩</div>
+          <h2>Email Support</h2>
+          <p>Aap humein direct email bhej sakte hain:</p>
+          <div class="email-box">
+            <div class="email-label">📧 Email:</div>
+            <div class="email-address">calculatyourland@gmail.com</div>
+          </div>
+          <div class="response-note">
+            <span>⏱️</span>
+            <span>Hum koshish karte hain ki 24–48 ghante ke andar reply diya ja sake.</span>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <h2>📝 Contact Form</h2>
+          <p style="color: #2b543b; margin-bottom: 1.5rem;">Niche diye gaye form ka use karke bhi message bhej sakte hain:</p>
+          
+          <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! This is a demo form. Please email us directly at calculatyourland@gmail.com');">
+            <div class="form-group">
+              <label>नाम (Name) *</label>
+              <input type="text" placeholder="Apna naam likhein" required>
+            </div>
+            
+            <div class="form-group">
+              <label>ईमेल एड्रेस (Email Address) *</label>
+              <input type="email" placeholder="aapka@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label>विषय (Subject) *</label>
+              <input type="text" placeholder="Message ka subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label>संदेश (Message) *</label>
+              <textarea placeholder="Apna message yahan likhein..." required></textarea>
+            </div>
+            
+            <div class="form-note">
+              ⓘ Ensure karein ki aap sahi email address enter karein taaki hum aapse reply kar saken.
+            </div>
+            
+            <button type="submit" class="submit-btn">📤 संदेश भेजें</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Kis Type ke Messages bhej sakte hain -->
+      <div class="message-types">
+        <h3>📌 Kis Type ke Messages bhej sakte hain?</h3>
+        <div class="types-grid">
+          <span class="type-tag">Tool related issue</span>
+          <span class="type-tag">Calculation error report</span>
+          <span class="type-tag">Blog content suggestion</span>
+          <span class="type-tag">Technical problem</span>
+          <span class="type-tag">General feedback</span>
+        </div>
+      </div>
+
+      <!-- Important Note and Response Time -->
+      <div class="info-boxes">
+        <div class="important-note">
+          <h4>⚠️ Important Note</h4>
+          <p>LandAreaCalculator.in par di gayi jaankari educational purpose ke liye hai. Legal ya official matter ke liye sambandhit authority se sampark karna zaroori hai.</p>
+        </div>
+        
+        <div class="response-time">
+          <h4>⏱️ Response Time</h4>
+          <p>Hum har genuine query ka jawab dene ki koshish karte hain. <span class="highlight">Response time normally 1–2 working days</span> ho sakta hai.</p>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="footer-note">
+        <p>© LandAreaCalculator.in — Aapke sawaal humein naye ideas dete hain</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">📬 feedback • suggestions • questions</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
