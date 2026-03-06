@@ -9,51 +9,99 @@
   </url>
 
   <url>
-    <loc>https://www.landareacalculator.in/about/</loc>
+    <loc>https://www.landareacalculator.in/about.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://www.landareacalculator.in/contact/</loc>
+    <loc>https://www.landareacalculator.in/Contact.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://www.landareacalculator.in/privacy-policy/</loc>
+    <loc>https://www.landareacalculator.in/dismil-kattha.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://www.landareacalculator.in/disclaimer/</loc>
+    <loc>https://www.landareacalculator.in/haath-ki-laggi.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/kattha-dismil.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/khet-kshetrafal.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/Privacy-policy.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.70</priority>
   </url>
 
   <!-- Blog Section -->
   <url>
-    <loc>https://www.landareacalculator.in/blog/</loc>
+    <loc>https://www.landareacalculator.in/blog/index.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.90</priority>
   </url>
 
   <!-- Example Blog Posts (Replace with real URLs) -->
   <url>
-    <loc>https://www.landareacalculator.in/post/bihar-udyami-yojana-2026/</loc>
+    <loc>https://www.landareacalculator.in/post/E-saram.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.70</priority>
   </url>
 
   <url>
-    <loc>https://www.landareacalculator.in/post/zameen-ki-registri-ke-niyam/</loc>
+    <loc>https://www.landareacalculator.in/post/zameen-ki-registri-ke-niyam.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.70</priority>
   </url>
 
   <url>
-    <loc>https://www.landareacalculator.in/post/bigha-katha-dhur-antar/</loc>
+    <loc>https://www.landareacalculator.in/post/bigha-katha-dhur.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/kishan-credit-card-yojana-2026.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/dakhil-kharij.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/bihar-udyami-yojana-2026.html/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.landareacalculator.in/post/khata-khasra-plot-number-kya-hai.html/</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.70</priority>
   </url>
