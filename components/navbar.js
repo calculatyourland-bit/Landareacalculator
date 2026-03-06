@@ -62,7 +62,7 @@
     const isBlogPage = 
       currentPage === 'blog.html' || 
       currentPage === '' && path.includes('/blog/') ||
-      fullPath.includes('/blog/blog.html') ||
+      fullPath.includes('/blog/index.html') ||
       fullPath.includes('/blog/') && currentPage === 'post.html' ||
       document.querySelector('[data-nav="blog"]')?.getAttribute('href') === window.location.href;
     
