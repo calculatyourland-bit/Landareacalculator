@@ -29,6 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <lin k rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
     /* Reset & Base */
@@ -332,208 +333,6 @@
       box-shadow: 0 15px 25px -8px var(--primary-dark);
     }
 
-    /* Improved Share Section */
-    .share-section {
-      margin: 60px 0 30px;
-      padding: 30px 20px;
-      background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.2));
-      border-radius: 40px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-
-    .share-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .share-title span {
-      background: var(--primary-gradient);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 30px;
-      font-size: 14px;
-    }
-
-    .share-description {
-      font-size: 16px;
-      color: var(--text-soft);
-      margin-bottom: 25px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .share-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .share-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: white;
-      border: none;
-      font-size: 28px;
-      cursor: pointer;
-      transition: all 0.3s var(--bounce);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .share-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(0);
-      border-radius: 50%;
-      transition: transform 0.3s ease;
-    }
-
-    .share-btn:hover::before {
-      transform: scale(1);
-    }
-
-    .share-btn:hover {
-      transform: translateY(-8px) scale(1.1);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .share-btn:active {
-      transform: translateY(-2px) scale(0.95);
-    }
-
-    .share-btn.whatsapp { 
-      background: #25D366; 
-      color: white;
-      box-shadow: 0 10px 20px -5px #25D366;
-    }
-    .share-btn.facebook { 
-      background: #1877F2; 
-      color: white;
-      box-shadow: 0 10px 20px -5px #1877F2;
-    }
-    .share-btn.twitter { 
-      background: #1DA1F2; 
-      color: white;
-      box-shadow: 0 10px 20px -5px #1DA1F2;
-    }
-    .share-btn.linkedin { 
-      background: #0A66C2; 
-      color: white;
-      box-shadow: 0 10px 20px -5px #0A66C2;
-    }
-    .share-btn.telegram { 
-      background: #0088cc; 
-      color: white;
-      box-shadow: 0 10px 20px -5px #0088cc;
-    }
-
-    .share-count {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .share-count-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .share-count-number {
-      font-weight: 700;
-      color: var(--primary-dark);
-      font-size: 18px;
-    }
-
-    .copy-link-container {
-      display: flex;
-      max-width: 400px;
-      margin: 20px auto 0;
-      background: white;
-      border-radius: 60px;
-      overflow: hidden;
-      border: 2px solid rgba(5, 150, 105, 0.2);
-    }
-
-    .copy-link-input {
-      flex: 1;
-      padding: 12px 20px;
-      border: none;
-      font-size: 14px;
-      color: var(--text-dark);
-      background: transparent;
-    }
-
-    .copy-link-input:focus {
-      outline: none;
-    }
-
-    .copy-link-btn {
-      background: var(--primary-gradient);
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .copy-link-btn:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: var(--text-soft);
-      text-align: center;
-      padding: 20px;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 40px;
-      backdrop-filter: blur(5px);
-    }
-
-    .breathing-heart {
-      animation: breathe 2s ease-in-out infinite;
-      display: inline-block;
-      color: #ef4444;
-    }
-
-    @keyframes breathe {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-
     /* Responsive */
     @media (max-width: 600px) {
       .glass-box {
@@ -590,7 +389,7 @@
     
     <!-- Back to Home -->
     <a href="/index.html" class="back-home">
-      <span>←</span> होम पेज पर वापस
+      <span>←</span> back
     </a>
     
     <article>
@@ -602,14 +401,14 @@
         <div class="blog-meta">
           <span class="meta-item">📅 26 फरवरी, 2026</span>
           <span class="meta-item">✍️ मनीष कुमार</span>
-          <span class="meta-item">⏱️ 5 मिनट पढ़ना</span>
+         
         </div>
       </header>
       
       <!-- Featured Image -->
       <figure>
         <div class="featured-image">
-          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop" alt="बीघा, कट्ठा और धुर में अंतर - जमीन माप" loading="lazy">
+          <img src="/image/kattha.PNG" alt="बीघा, कट्ठा और धुर में अंतर - जमीन माप" loading="lazy">
         </div>
         <figcaption class="image-caption">बिहार में जमीन की माप: बीघा, कट्ठा और धुर (प्रतीकात्मक तस्वीर)</figcaption>
       </figure>
@@ -627,7 +426,7 @@
             <li><strong>कट्ठा:</strong> मध्यम आकार की इकाई (1 कट्ठा = 20 धुर).</li>
             <li><strong>धुर:</strong> सबसे छोटी इकाई.</li>
             <li><strong>1 बीघा = 400 धुर</strong> (20 कट्ठा × 20 धुर).</li>
-            <li><strong>वर्ग फीट में:</strong> 1 कट्ठा ≈ 1361 वर्ग फीट, 1 धुर ≈ 68 वर्ग फीट.</li>
+            <li><strong>वर्ग फीट में(6.5 हाथ की लग्गी से):</strong> 1 कट्ठा ≈ 1361.2 वर्ग फीट, 1 धुर ≈ 68.06 वर्ग फीट.</li>
           </ul>
         </div>
         
@@ -659,24 +458,24 @@
             <tr>
               <th>इकाई (Unit)</th>
               <th>बीघा/कट्ठा/धुर में संबंध</th>
-              <th>अनुमानित वर्ग फीट (sq ft) में</th>
+              <th>वर्ग फीट (sq ft) में (6.5 हाथ की लग्गी से)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>1 धुर</strong></td>
               <td>सबसे छोटी इकाई</td>
-              <td>≈ 68 वर्ग फीट</td>
+              <td>≈ 68.06 वर्ग फीट</td>
             </tr>
             <tr>
               <td><strong>1 कट्ठा</strong></td>
               <td>20 धुर</td>
-              <td>≈ 1361 वर्ग फीट (20 धुर × 68)</td>
+              <td>≈ 1361.2 वर्ग फीट (20 धुर × 68)</td>
             </tr>
             <tr>
               <td><strong>1 बीघा</strong></td>
               <td>20 कट्ठा</td>
-              <td>≈ 27,225 वर्ग फीट (20 कट्ठा × 1361)</td>
+              <td>≈ 27,224 वर्ग फीट (20 कट्ठा × 1361.2)</td>
             </tr>
           </tbody>
         </table>
@@ -705,7 +504,7 @@
         
         <!-- Calculator Link -->
         <div style="text-align: center;">
-          <a href="/" class="calculator-link">
+          <a href="/" class="/kattha-dismil.html">
             🖐️📏 बीघा-कट्ठा-धुर कैलकुलेटर
             <span>→</span>
           </a>
@@ -716,51 +515,11 @@
         <p><strong>बीघा, कट्ठा और धुर जमीन की पारंपरिक माप इकाइयाँ हैं, जिनका उपयोग बिहार में सबसे ज्यादा होता है।</strong> इनके सही अंतर को समझना जमीन खरीदने और बेचने के लिए बेहद जरूरी है। याद रखें: <strong>1 बीघा में 20 कट्ठा और 1 कट्ठा में 20 धुर होते हैं।</strong> जमीन का कोई भी सौदा करने से पहले इन इकाइयों को वर्ग फीट में बदलकर जरूर देख लें, ताकि आपके साथ कोई गलती न हो।</p>
         
       </div>
-      
-      <!-- Improved Share Section -->
-      <div class="share-section">
-        <div class="share-title">
-          📢 यह जानकारी शेयर करें
-          <span>मददगार</span>
-        </div>
-        <p class="share-description">
-          किसान भाइयों और जमीन खरीदारों तक यह महत्वपूर्ण जानकारी पहुँचाने में हमारी मदद करें
-        </p>
-        
-        <div class="share-buttons">
-          <a href="https://wa.me/?text=बीघा, कट्ठा और धुर में अंतर जानें - https://landareacalculator.in/post/bigha-kattha-dhur.html" target="_blank" class="share-btn whatsapp" aria-label="WhatsApp पर शेयर करें">📱</a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://landareacalculator.in/post/bigha-kattha-dhur.html" target="_blank" class="share-btn facebook" aria-label="Facebook पर शेयर करें">📘</a>
-          <a href="https://twitter.com/intent/tweet?text=बीघा, कट्ठा और धुर में क्या अंतर है? जानिए जरूरी बातें&url=https://landareacalculator.in/post/bigha-kattha-dhur.html" target="_blank" class="share-btn twitter" aria-label="Twitter पर शेयर करें">🐦</a>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://landareacalculator.in/post/bigha-kattha-dhur.html" target="_blank" class="share-btn linkedin" aria-label="LinkedIn पर शेयर करें">🔗</a>
-          <a href="https://t.me/share/url?url=https://landareacalculator.in/post/bigha-kattha-dhur.html&text=बीघा, कट्ठा और धुर में अंतर" target="_blank" class="share-btn telegram" aria-label="Telegram पर शेयर करें">📢</a>
-        </div>
-        
-        <!-- Share Count (डेमो के लिए) -->
-        <div class="share-count">
-          <div class="share-count-item">
-            <span>👁️</span>
-            <span class="share-count-number">2.5k</span>
-            <span>बार पढ़ा गया</span>
-          </div>
-          <div class="share-count-item">
-            <span>🔄</span>
-            <span class="share-count-number">560</span>
-            <span>शेयर</span>
-          </div>
-        </div>
-        
-        <!-- Copy Link Button -->
-        <div class="copy-link-container">
-          <input type="text" class="copy-link-input" value="https://landareacalculator.in/post/bigha-kattha-dhur.html" readonly id="postUrl">
-          <button class="copy-link-btn" onclick="copyPostUrl()">लिंक कॉपी करें</button>
-        </div>
-      </div>
-    </article>
     
+    </article>
     <!-- Footer -->
     <footer>
-      <p>© 2026 Land Area Calculator. सर्वाधिकार सुरक्षित।<br>
-      <span>Made with <span class="breathing-heart">❤️</span> by Manish Kumar</span></p>
+     <div id="footer-container"></div>
     </footer>
   </div>
 </div>
@@ -825,6 +584,6 @@
     }, 2000);
   }
 </script>
-
+<script src="/components/footer.js"></script>
 </body>
 </html>
