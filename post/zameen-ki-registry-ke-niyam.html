@@ -25,7 +25,7 @@
   <meta name="theme-color" content="#059669">
   
   <link rel="canonical" href="https://landareacalculator.in/post/zameen-ki-registry-ke-niyam.html">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -483,25 +483,6 @@
       background: var(--primary-dark);
     }
 
-    /* Footer */
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: var(--text-soft);
-      text-align: center;
-      padding: 20px;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 40px;
-      backdrop-filter: blur(5px);
-    }
-
-    .breathing-heart {
-      animation: breathe 2s ease-in-out infinite;
-      display: inline-block;
-      color: #ef4444;
-    }
-
     @keyframes breathe {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.3); }
@@ -562,7 +543,7 @@
   <div class="glass-box">
     
     <!-- Back to Home -->
-    <a href="/index.html" class="back-home">
+    <a href="/blog/index.html" class="back-home">
       <span>←</span> back
     </a>
     
@@ -726,9 +707,7 @@
     
     <!-- Footer with correct "All rights reserved" link -->
     <footer>
-      <p>© 2026 Land Area Calculator. All rights reserved.<br>
-      <span>Made with <span class="breathing-heart">❤️</span> by Manish Kumar</span><br>
-      <a href="https://landareacalculator.in/post/zameen-ki-registry-ke-niyam.html" style="color: var(--primary-dark); text-decoration: none;">landareacalculator.in/post/jamin-regestry.html</a></p>
+     <div id="footer-container"></div>
     </footer>
   </div>
 </div>
@@ -793,6 +772,9 @@
     }, 2000);
   }
 </script>
+<script src="/components/footer.js"></script>
 
+
+  
 </body>
 </html>
